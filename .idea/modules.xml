@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codeGym.iml" filepath="$PROJECT_DIR$/.idea/modules/codeGym.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codeGym_main.iml" filepath="$PROJECT_DIR$/.idea/modules/codeGym_main.iml" group="codeGym" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codeGym_test.iml" filepath="$PROJECT_DIR$/.idea/modules/codeGym_test.iml" group="codeGym" />
+    </modules>
+  </component>
+</project>
