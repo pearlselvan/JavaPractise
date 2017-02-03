@@ -30,9 +30,18 @@ public class DeadLockAvoid {
 
 
     public static void main(String[] args) throws InterruptedException {
+
+        deadLockExample(); // How to get the thread dump ? use jstack
+
+
+
+    }
+
+
+
+    public static void deadLockExample() {
         final Object lock1 = new Object();
         final Object lock2 = new Object();
-
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -50,14 +59,10 @@ public class DeadLockAvoid {
                 }  // main synchronized block ends here
             }
         });
-
         thread1.start();
-
-
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-
                 synchronized (lock2) { // main synchronized block start here
                     System.out.println("Thread 2 acquired lock 2");
                     try {
@@ -72,52 +77,11 @@ public class DeadLockAvoid {
                 } //// main synchronized ends start here
             }
         });
-
         thread2.start();
 
 
 
-
-
-
-
-//        Thread thread1 = new Thread(new Runnable() {
-//            @Override public void run() {
-//                synchronized (lock1) {
-//                    System.out.println("Thread1 acquired lock1");
-//                    try {
-//                        TimeUnit.MILLISECONDS.sleep(50);
-//                    } catch (InterruptedException ignore) {}
-//                    synchronized (lock2) {
-//                        System.out.println("Thread1 acquired lock2");
-//                    }
-//                }
-//            }
-//
-//        });
-//        thread1.start();
-//
-//        Thread thread2 = new Thread(new Runnable() {
-//            @Override public void run() {
-//                synchronized (lock2) {
-//                    System.out.println("Thread2 acquired lock2");
-//                    try {
-//                        TimeUnit.MILLISECONDS.sleep(50);
-//                    } catch (InterruptedException ignore) {}
-//                    synchronized (lock1) {
-//                        System.out.println("Thread2 acquired lock1");
-//                    }
-//                }
-//            }
-//        });
-//        thread2.start();
-//
-//        // Wait a little for threads to deadlock.
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(100);
-//        } catch (InterruptedException ignore) {}
     }
-//
 
     }
 

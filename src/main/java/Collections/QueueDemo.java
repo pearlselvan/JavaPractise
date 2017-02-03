@@ -1,8 +1,6 @@
 package Collections;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -20,6 +18,7 @@ public class QueueDemo {
         addQueue();
         ArrayBlockingQueue();
         PriorityQueue();
+        queueOpearation();
     }
 
     public static void addQueue() {
@@ -32,6 +31,10 @@ public class QueueDemo {
 
         queue.offer(909090);
         queue.offer(909091);
+
+
+
+
         queue.forEach(q -> System.out.println(q));
 
     }
@@ -78,22 +81,37 @@ public class QueueDemo {
 
         Queue<Item> itemQueue = new PriorityQueue<>();
         Item iphone = new Item("iPhone",100);
-        Item iPad = new Item("iPad",200);
+        Item iPad = new Item("iPad",10);
         Item mac = new Item("Mac",300);
         itemQueue.add(iphone);
         itemQueue.add(iPad);
         itemQueue.add(mac);
 
-        itemQueue.forEach(item -> System.out.println(item));
+        itemQueue.forEach(item -> System.out.println("Item : " +item.getItem()));
 
 
+
+    }
+
+    public static void queueOpearation() {
+
+        String name = new Object(){}.getClass().getEnclosingMethod().getName();
+        System.out.println("Running " +name);
+
+        Queue<Integer> jiraIssue = new ArrayDeque<>();
+        jiraIssue.offer(100);
+        jiraIssue.offer(101);
+        jiraIssue.offer(102);
+
+        System.out.println("Peek" +jiraIssue.peek());  // Retrieves, but does not remove, the head of this queue,
+        System.out.println("Poll" +jiraIssue.poll());  //Retrieves and removes the head of this queue,
 
     }
 
 }
 
 
-class Item {
+class Item implements Comparable<Item> {
 
     public Item(String item, Integer price) {
         this.item = item;
@@ -121,5 +139,29 @@ class Item {
 
 
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+        Item item1 = (Item) o;
+        if (!item.equals(item1.item)) return false;
+        return price.equals(item1.price);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = item.hashCode();
+        result = 31 * result + price.hashCode();
+        return result;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        if (this.price == o.price) {
+            return this.item.compareTo(o.item);
+        }
+        return this.price - o.price;
+    }
 
 }

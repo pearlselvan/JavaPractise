@@ -2,6 +2,8 @@ package Collections;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by muthuselvan on 2/2/17.
@@ -32,9 +34,10 @@ public class ArrayListDemo {
     }
 
 
-    //seach will be good o(1) where in linked list o(n)
+    //seach will be good o(1) where in linked list o(n) because it implements RandomAccess so search wil be faseter
+    // its not thread safe , so use vector but
     public static void arrayList() {
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<String> arrayList = new ArrayList<>();  // implements RandomAccess so search wil be faseter
         arrayList.add("google1");
         arrayList.add("google2");
         arrayList.add("google3");
@@ -48,9 +51,11 @@ public class ArrayListDemo {
 
     //When to use :  insert and remove because o(1) but in array list o(n)
     // frequent addition and deletion in application then LinkedList is a best choice.
+    // Linked List is Doubly-linked list implementation because its impleemnt list and queue inteface
 
     public static void linkedList() {
-        LinkedList<Employee> linkedList = new LinkedList<>();
+//        List<Employee> linkedList = new LinkedList<>();
+        List<Employee> linkedList = new CopyOnWriteArrayList<>();  // use this for thread safe
         Employee emp1 = new Employee("Muthu",1);
         Employee emp2 = new Employee("Selvan",2);
         Employee emp3 = new Employee("Selvan2",3);
@@ -58,9 +63,9 @@ public class ArrayListDemo {
         linkedList.add(emp2);
         // in list is possbile to add the index position
         linkedList.add(0,emp3);
-
         linkedList.forEach(emp -> System.out.println("Name : " +emp.geteName()));
 
+        LinkedList poll = new LinkedList(); // becaue linked list implement queue inteface so it support peek , poll ,pollfirst which support queue opearation
 
 
     }
