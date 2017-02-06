@@ -56,21 +56,19 @@ public class BlockingQueueDemo
 
     }
 
+    ////LinkedBlockingDeque capacity is optional thats bounded : that's bounder and unbounded
     public static void linkedBlockingQueue() {
         Queue linkedBlockingQ =  new LinkedBlockingDeque();
         linkedBlockingQ.offer(1);
     }
 
-
+    //ArrayBlockingQueue capacity is not optional thats bounded
     public static void boundedBlockingQueue() {
-
         BlockingQueue bounded = new ArrayBlockingQueue(2) ;
         bounded.offer(100);
         bounded.offer(200);
         // bounded.add(300);  //Exceltion :main" java.lang.IllegalStateException: Queue full
         System.out.println("Bounder Block Q : " +bounded.size());
-
-
     }
 
     public static void concurrentLinkedQueue() {
@@ -86,8 +84,10 @@ public class BlockingQueueDemo
          4.
 
        */
+
+      //ArrayBlockingQueue capacity is not optional thats bounded
       public static void blockingQueue() throws InterruptedException {
-          BlockingQueue queue = new ArrayBlockingQueue(1024);
+          BlockingQueue queue = new ArrayBlockingQueue(10);
           try {
               queue.put(1);
               queue.put(2);

@@ -19,6 +19,12 @@ What is a deadlock?
    Deadlocks usually occur when the order of locks is not consistent throughout the application.
 
    How to get the thread dump ? use jstack
+
+   How to avoid ?  if you provide an ordered access then problem will be resolved
+   http://javarevisited.blogspot.sg/2010/10/what-is-deadlock-in-java-how-to-fix-it.html?m=1
+
+   Another way to avoid dead lock without synchronzation is immutable object by creating class as final and variable as final
+   setting value though constructor and no setter and only getter ...
  */
 
 
