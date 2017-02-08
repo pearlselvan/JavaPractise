@@ -5,7 +5,6 @@ package DesingPattern;
  */
 
 /*
-
 There are three major issues with Factory and Abstract Factory design patterns
  when the Object contains a lot of attributes.
 
@@ -18,13 +17,10 @@ we are forced to send all the parameters and optional parameters need to send as
 
 3. If the object is heavy and its creation is complex,
 then all that complexity will be part of Factory classes that is confusing.
-
  */
 
 /*
-
 Implementaion logic :
-
 1. First of all you need to create a static nested class and then copy
 all the arguments from the outer class to the Builder class.
 
@@ -33,8 +29,6 @@ then builder class should be named as ComputerBuilder.
 
 2. Java Builder class should have a public constructor
 with all the required attributes as parameters
-
-
  */
 
 

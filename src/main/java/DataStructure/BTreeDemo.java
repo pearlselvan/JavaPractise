@@ -7,7 +7,7 @@ package DataStructure;
 
 /*
 
-Binary Tree :
+Binary Tree : ( its extension of binary search tree )
 It is a tree data structure in which each node has at most two children.
 As such there is no relation between a parent and its left and right descendants. Hence they are unordered.
 
@@ -22,6 +22,9 @@ These are self balancing and hence the average and worst complexities is logarit
 We opt for these when the data is too huge to fit in main memory.
 
 These structures are used in database indexing and help in faster operations on disk.
+
+Reff :
+https://www.youtube.com/watch?v=k5J9M5_IMzg
 
  */
 
