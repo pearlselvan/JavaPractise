@@ -15,17 +15,14 @@ package CodingPractise;
  Reverse first k elements, so array became : {7,8,6,5,4,3,2,1}
  Reverse rest of elements, so array became  : {7,8,1,2,3,4,5,6}
 
-  in above approach reverse is common
-
+ >>in above approach reverse is common
  *
  * http://www.java2blog.com/2017/02/rotate-array-by-k-positions.html?m=1
  */
 public class RotateKTimes {
-
     public RotateKTimes() {
 
     }
-
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6};
 //        rotate(arr); //This is the NOT optimized approach.

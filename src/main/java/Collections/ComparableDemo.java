@@ -40,10 +40,8 @@ public class ComparableDemo {
 }
 
 class EmployeeComparable implements
-
         Comparable<EmployeeComparable>
 {
-
     private int empAge ;
     private String empName ;
 

@@ -8,29 +8,30 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /*
-  A BlockingQueue implementation class supports operations that wait for the queue to become non-empty
+  A BlockingQueue implementation class supports operations
+   that wait for the queue to become non-empty
    when retrieving an element,
    and wait for space to become available in the queue when storing an element.
  */
 
 /*
   Exception :
-  BlockingQueue in Java doesn't allow null elements, various implementation of BlockingQueue
-  like ArrayBlockingQueue, LinkedBlockingQueue throws NullPointerException
+  BlockingQueue in Java doesn't allow null elements,
+  various implementation of BlockingQueue
+  like ArrayBlockingQueue, LinkedBlockingQueue throws
+  NullPointerException
   when you try to add null on queue.
 
   Common methods :
-  Common methods of BlockingQueue is are put() and take()
-  which are blocking methods in Java and used to insert and retrive elements from BlockingQueue in Java.
+  Common methods of BlockingQueue
+  is are put() and take()
+  which are blocking methods in Java and
+  used to insert and retrive elements
+  from BlockingQueue in Java.
   put() will block if BlockingQueue is full
   take() will block if BlockingQueue is empty,
   call to take() removes element from head of Queue as shown in following example:
-
-
-
-
  */
-
 
 
 /**
@@ -44,19 +45,14 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class BlockingQueueDemo
 {
-
-
     public static void main(String[] args) throws InterruptedException {
-
-        boundedBlockingQueue();
-        blockingQueue();
-        concurrentLinkedQueue();
-
-
-
+       boundedBlockingQueue();
+       blockingQueue();
+       concurrentLinkedQueue();
     }
 
-    ////LinkedBlockingDeque capacity is optional thats bounded : that's bounder and unbounded
+    ////LinkedBlockingDeque capacity is optional
+    // thats bounded : that's bounder and unbounded
     public static void linkedBlockingQueue() {
         Queue linkedBlockingQ =  new LinkedBlockingDeque();
         linkedBlockingQ.offer(1);
@@ -76,13 +72,12 @@ public class BlockingQueueDemo
         concurrentLinkedQueue.offer(1);
     }
 
-      /*
-         1. its thread safe
-         2. Practical use : typically used to have on thread produce objects, which another thread consumes.
-         3. It is not possible to insert null into a BlockingQueue. If you try to insert null,
-         the BlockingQueue will throw a NullPointerException.
-         4.
-
+    /*
+     1. its thread safe
+     2. Practical use : typically used to have on thread produce objects,
+     which another thread consumes.
+     3. It is not possible to insert null into a BlockingQueue. If you try to insert null,
+     the BlockingQueue will throw a NullPointerException.
        */
 
       //ArrayBlockingQueue capacity is not optional thats bounded
@@ -117,10 +112,4 @@ public class BlockingQueueDemo
            or returns {@code null} if this queue is empty.
            */
           System.out.println("Array Blocking Q poll : " +queue.poll());
-
-
       }}
-
-
-
-

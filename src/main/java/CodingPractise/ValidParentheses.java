@@ -6,6 +6,14 @@ import java.util.Stack;
 /**
  * Created by muthuselvan on 2/7/17.
  */
+
+/*
+1. Scan the string from left and check if this open parenthis
+2. if yes then push
+3. else ( if close parenthisis)
+4. then peek and check with current char
+5. finally : if stack is empty then valid
+ */
 public class ValidParentheses {
 
     public ValidParentheses() {
@@ -41,7 +49,6 @@ public class ValidParentheses {
                 }
             }
         }
-
         return stack.empty();
     }
 
@@ -78,8 +85,4 @@ public class ValidParentheses {
         else
             return "Not Balanced";
     }
-
-
-
-
 }

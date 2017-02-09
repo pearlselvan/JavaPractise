@@ -7,7 +7,8 @@ package DataStructure;
 /*
 
 http://algorithms.tutorialhorizon.com/binary-search-tree-complete-implementation/
-Nodes smaller than root goes to the left of the root and Nodes greater than root goes to the right of the root.
+Nodes smaller than root goes to the left of the root
+and Nodes greater than root goes to the right of the root.
 left < root < right
  */
 
@@ -23,10 +24,6 @@ Binary Search Tree Opearation :
 3. if root.data is smaller than n that means we need to go to the right of the root.
 4. if any point of time root.data is equal to the n then we have found the node, return true.
 5. if we reach to the leaves (end of the tree) return false, we didn’t find the element
-
-
-
-
  */
 
 public class BinarySearchTree {
@@ -61,9 +58,7 @@ public class BinarySearchTree {
             display(root.right);
         }
 
-
     }
-
 
     public boolean find(int data) {
 
@@ -78,18 +73,11 @@ public class BinarySearchTree {
                 current = current.right;
             }
         }
-
-
         return false;
-
     }
-
-
 
     public void insert(int data) {
         NodeBST newNode = new NodeBST(data);
-
-
         if (root == null) {
         root = newNode ;
         return;
@@ -118,20 +106,11 @@ public class BinarySearchTree {
               }
 
           }
-
-
-
         }
-
-
-
     }
-
 }
 
-
 class NodeBST {
-
     int data ;
     NodeBST right ;
     NodeBST left ;

@@ -43,19 +43,14 @@ java.lang.StringBuffer#append() (synchronized)
  */
 
 public class BuilderDP {
-
     public static void main(String[] args) {
-
             Report testReport = new Report.ReportBuilder("com.util","ArrayList","put").setHTMLReportEnable(true).build();
             String className = testReport.getClassName();
             System.out.println("ClassName : " +className);
         }
-
     }
 
-
 class Report {
-
     // required parameters
     private String packageName ;
     private String className ;
@@ -64,9 +59,6 @@ class Report {
     //optional parameters
     private boolean isHTMLReportEnable ;
     private boolean isPDFReportEnable ;
-
-
-
 
     public String getPackageName() {
         return packageName;
@@ -104,8 +96,6 @@ class Report {
     // We should follow the naming convention and if the class name is Report then builder class
     // should be named as ReportBuilder.
     public static class ReportBuilder {
-
-
         //STEP 2
         // Java Builder class should have a public constructor with
         // all the required attributes as parameters.
@@ -113,18 +103,15 @@ class Report {
         private String packageName ;
         private String className ;
         private String methodName ;
-
         //optional parameters
         private boolean isHTMLReportEnable ;
         private boolean isPDFReportEnable ;
-
 
         public ReportBuilder(String packageName, String className, String methodName) {
             this.packageName = packageName;
             this.className = className;
             this.methodName = methodName;
         }
-
         //STEP 3
         // Java Builder class should have methods to set the optional parameters
         // and it should return the same Builder object after setting the optional

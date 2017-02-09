@@ -29,8 +29,6 @@ public class Singleton {
         });
 
         thread1.start();
-
-
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,20 +39,10 @@ public class Singleton {
 
         thread2.start();
     }
-
-
-
-
-
-
-
-
 }
 
 
 class ThreadRunnable implements Callable {
-
-
     public ThreadRunnable(){
 
     }
@@ -65,8 +53,6 @@ class ThreadRunnable implements Callable {
         return singletonClassInstance1;
     }
 }
-
-
 
 class SingletonClass  {
     private static SingletonClass singletonClass = null ;
@@ -80,6 +66,4 @@ class SingletonClass  {
         }
         return singletonClass;
     }
-
-
 }

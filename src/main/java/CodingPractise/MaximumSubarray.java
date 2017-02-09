@@ -9,6 +9,16 @@ package CodingPractise;
 /*
 
 Use : Kadane’s Algorithm:
+Kadane's algorithm consists of a scan through the array values,
+computing at each position the maximum (positive sum) subarray ending at that position.
+This subarray is either empty (in which case its sum is zero) or consists of one more element
+than the maximum subarray ending at the previous position.
+
+The algorithm only needs to keep track of the ending position because
+the implied starting position is just after the last position at
+which the sum went negative; a higher sum can always be found
+by dropping any negative-sum prefix.
+
 
 
 Initialize:

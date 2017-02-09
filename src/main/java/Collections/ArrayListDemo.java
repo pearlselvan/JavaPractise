@@ -7,34 +7,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by muthuselvan on 2/2/17.
- *
  * http://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/
  */
 
-
 /*
 
- Compare with Search , Deletion , Inserts Performance and   Memory Overhead
+ Compare with Search , Deletion , Inserts Performance
+ and   Memory Overhead
  What is similarity ?
  1. Both will maintain insertion order
  2. Both from list interface
- 3. Both of them non synchronized but we have :  Collections.synchronizedList method.
-
+ 3. Both of them non synchronized but we have :
+   Collections.synchronizedList method.
  */
 
 
 public class ArrayListDemo {
-
     public static void main(String[] args) {
-
         arrayList();
         linkedList();
-
-
     }
 
-
-    //seach will be good o(1) where in linked list o(n) because it implements RandomAccess so search wil be faseter
+    //seach will be good o(1) where in linked list o(n)
+    // because it implements RandomAccess so search wil be faseter
     // its not thread safe , so use vector but
     public static void arrayList() {
         ArrayList<String> arrayList = new ArrayList<>();  // implements RandomAccess so search wil be faseter
@@ -49,9 +44,14 @@ public class ArrayListDemo {
 
 
 
-    //When to use :  insert and remove because o(1) but in array list o(n)
-    // frequent addition and deletion in application then LinkedList is a best choice.
-    // Linked List is Doubly-linked list implementation because its impleemnt list and queue inteface
+    //When to use :  insert and remove because o(1)
+    // but in array list o(n)
+
+    // frequent addition and deletion in application
+    // then LinkedList is a best choice.
+
+    // Linked List is Doubly-linked list implementation
+    // because its impleemnt list and queue inteface
 
     public static void linkedList() {
 //        List<Employee> linkedList = new LinkedList<>();
@@ -65,16 +65,13 @@ public class ArrayListDemo {
         linkedList.add(0,emp3);
         linkedList.forEach(emp -> System.out.println("Name : " +emp.geteName()));
 
-        LinkedList poll = new LinkedList(); // becaue linked list implement queue inteface so it support peek , poll ,pollfirst which support queue opearation
-
-
+        LinkedList poll = new LinkedList(); // becaue linked list implement
+        // queue inteface so it support peek , poll ,pollfirst
+        // which support queue opearation
     }
 }
 
-
-
 class Employee {
-
     String eName ;
     int  eId ;
 
@@ -86,18 +83,13 @@ class Employee {
     public String geteName() {
         return eName;
     }
-
     public void seteName(String eName) {
         this.eName = eName;
     }
-
     public int geteId() {
         return eId;
     }
-
     public void seteId(int eId) {
         this.eId = eId;
     }
-
-
 }

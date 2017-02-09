@@ -10,24 +10,20 @@ import java.util.Map;
  */
 
 /*
-The java.util.LinkedHashMap.removeEldestEntry() method returns true if this map should remove its eldest
-entry. This method is invoked by put and putAll after inserting a new entry into the map.
-It provides the implementor with the opportunity to remove the eldest entry each time a new one is added.
+The java.util.LinkedHashMap.removeEldestEntry()
+method returns true if this map should remove its eldest
+entry. This method is invoked by put and putAll after
+inserting a new entry into the map.
+It provides the implementor with the opportunity to remove
+the eldest entry each time a new one is added.
 This is useful if the map represents a cache: it allows the map to reduce memory consumption by deleting
 stale entries.
 
 */
 
 public class RemoveEldestEntry_LinkedHashMap {
-
     public static void main(String[] args) {
-
-
         linkedHashMap();
-
-
-
-
     }
 
     // The below demo prgram will remove eldest element "H" from the linkedhashmap

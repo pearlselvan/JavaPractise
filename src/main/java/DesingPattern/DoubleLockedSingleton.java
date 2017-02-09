@@ -30,15 +30,9 @@ public class DoubleLockedSingleton {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
         service.shutdown();
     }
-
-
 }
-
-
-
 class Tworker implements Callable {
     DoubleCheckedLock doubleCheckedLock;
     public DoubleCheckedLock call() {
@@ -48,13 +42,8 @@ class Tworker implements Callable {
             e.printStackTrace();
         }
         return doubleCheckedLock;
-
-
-
     }
-
 }
-
 
 //Doble Checked Locking
 class DoubleCheckedLock    {
@@ -62,7 +51,6 @@ class DoubleCheckedLock    {
     private DoubleCheckedLock() {
 
     }
-
     public static DoubleCheckedLock getInstance() {
         if (doubleCheckedLock == null) {
           synchronized (DoubleCheckedLock.class) {
@@ -74,8 +62,6 @@ class DoubleCheckedLock    {
         return doubleCheckedLock;
 
     }
-
-
 }
 
 
