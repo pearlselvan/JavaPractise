@@ -22,8 +22,25 @@ public class ComparatorDemo {
         personArrayList.add(p2);
         personArrayList.add(p3);
 
+//        Collections.sort(personArrayList ,new PersonComparatorByHeightByAscending());
+
+
         Collections.sort(personArrayList ,new PersonComparatorByHeightByAscending());
-        personArrayList.forEach(out -> System.out.println(out));
+        personArrayList.forEach(out -> System.out.println("Height be Asecending : " +out));
+
+        Collections.sort(personArrayList, new Comparator<Person>() {
+            @Override
+            public int compare(Person h1, Person h2) {
+                return -h1.getName().compareTo(h2.getName());
+            }
+        });
+
+        personArrayList.forEach(out -> System.out.println("Name be Asecending by ananymous : " +out));
+
+
+        //Using lambda :
+        personArrayList.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+        personArrayList.forEach(out -> System.out.println("Lambda :: Name be Asecending by ananymous : " +out));
 
     }
 
@@ -35,7 +52,7 @@ class Person {
 
     private String name ;
     private Integer height ;
-    
+
     public Person(String name, Integer height) {
         this.name = name;
         this.height = height;
