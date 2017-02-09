@@ -7,9 +7,7 @@ import java.util.Collections;
  * Created by muthuselvan on 2/8/17.
  */
 public class ComparatorLambda {
-
     public static void main(String[] args) {
-
         Country USA = new Country("USA");
         Country INDIA = new Country("INDIA");
         Country CHINA = new Country("CHINA");
@@ -26,22 +24,16 @@ public class ComparatorLambda {
 }
 
 class Country {
-
     private String cityName ;
-
     public String getCityName() {
         return cityName;
     }
-
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
-
-
     public Country(String cityName) {
         this.cityName = cityName;
     }
-
     @Override
     public String toString() {
         return "City{" +
