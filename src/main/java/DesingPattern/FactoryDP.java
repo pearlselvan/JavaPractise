@@ -57,6 +57,7 @@ class USA implements CurrencySymbol {
 
 class CurrencyFactory {
 
+   //Return of this method will be interface : CurrencySymbol
     public static CurrencySymbol getCurrency(String currentSymbol) {
         if (currentSymbol.equals("IN")) {
             return new India();
@@ -65,9 +66,7 @@ class CurrencyFactory {
         } else {
             throw new IllegalArgumentException("No Currency");
         }
-
     }
-
 }
 /*
 Best Example of Factory method design pattern is valueOf() method which is there in String and wrapper classes
