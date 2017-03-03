@@ -81,7 +81,7 @@ that we have just matched.
                 System.out.println("j :" +j);
                 System.out.println("ptrn[i] : " +ptrn[i]);
                 System.out.println("ptrn[j] : " +ptrn[j]);
-                System.out.println("b[i] : " +b[j]);
+                System.out.println("b[i] : " +pmtTable[j]);
                 j = pmtTable[j]; //set j = -1
                 System.out.println("j after " +j);
             }

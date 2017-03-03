@@ -1,6 +1,4 @@
-package Algorithm;
-
-import java.util.Queue;
+package Algorithm.Sort;
 
 /**
  * Created by muthuselvan on 2/7/17.
