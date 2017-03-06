@@ -1,4 +1,4 @@
-package DataStructure;
+package Algorithm.Sort;
 
 /**
  * Created by muthuselvan on 2/6/17.
@@ -63,7 +63,7 @@ SORTED :
 
      */
 
-public class QuickSort {
+public class QuickSortExplained {
 
     static int[] sortedArray ;
     int length ;
@@ -71,11 +71,11 @@ public class QuickSort {
     public static void main(String[] args) {
 
         int[] data = {5,4,10,7,8,9,2};
-        QuickSort quickSort = new QuickSort();
+        QuickSortExplained quickSortExplained = new QuickSortExplained();
 
         printarray(data);
 
-        quickSort.sort(data);
+        quickSortExplained.sort(data);
 
         printarray(data);
 

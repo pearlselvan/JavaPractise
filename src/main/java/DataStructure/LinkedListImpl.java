@@ -5,6 +5,12 @@ package DataStructure;
  */
 
 /*
+First node of linked list is called head and last node is called tail.
+A linked list is said empty if it doesn't contain any node i.e. head points to null.
+
+ */
+
+/*
 INSERT :
 1) At the front of the linked list
 2) After a given node.
@@ -29,6 +35,7 @@ public class LinkedListImpl {
         System.out.println("----Printing reverse----");
 
         linkedList.printreverseLinkedList(linkedList.head);
+        linkedList.printreverseLinkedListUsingOneWalk(linkedList.head);
 
     }
 
@@ -39,6 +46,50 @@ public class LinkedListImpl {
         head=newNode;
     }
 
+
+    /*
+Complexity
+O(n)O(n) time and O(1)O(1) space.
+We pass over the list only once, and maintain a constant
+number of variables in memory.
+
+In one pass from head to tail of our input list,
+we point each node's next pointer to the previous item.
+
+The order of operations is important here!
+We're careful to copy current.next into next
+before setting current.next to previous.
+Otherwise "stepping forward" at the end could actually
+mean stepping back to previous!
+     */
+
+    public void printreverseLinkedListUsingOneWalk(LLNode head) {
+        LLNode current = head ;
+        LLNode previuosNode = null ;
+        LLNode nextNode = null ;
+
+        System.out.println("Printing Reverse using OneWalk");
+        while (current != null) {
+
+            nextNode = current.next;
+
+            current.next = previuosNode;
+
+            previuosNode = current ;
+
+
+            System.out.println("<= :" +previuosNode.data);
+
+
+            current = nextNode;
+
+
+
+        }
+
+
+
+    }
 
     public void printreverseLinkedList(LLNode first) {
         if (first == null) {

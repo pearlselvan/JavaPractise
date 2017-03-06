@@ -13,6 +13,8 @@ public class FindMissingNo {
         int sumOfNnumbers = sumOfN(maxinArray(a));
         //Step 2
         int sumOfElements = sumOfElements(a);
+        System.out.println("sumOfElements " +sumOfElements);
+        System.out.println("sumOfNnumbers " +sumOfNnumbers);
         int missingNumber = sumOfNnumbers - sumOfElements;
         System.out.println("Missing Number is = "+missingNumber);
         System.out.println("Max : " +maxinArray(a));

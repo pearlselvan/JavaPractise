@@ -3,6 +3,15 @@ package CodingPractise;
 /**
  * Created by muthuselvan on 2/9/17.
  *
+ *
+ *Problem:
+ N=6 and k=2
+ If Arr[] = {1, 2, 3, 4, 5, 6} and k=2
+ then rotated array will be  {5, 6, 1, 2,  3,  4}
+
+
+ *
+ *
  * Algorithm for this approach works as below:
    1.Reverse whole array.
    2.Reverse first k elements
@@ -14,6 +23,9 @@ package CodingPractise;
  You rotate the whole array. So array became: {8,7,6,5,4,3,2,1}
  Reverse first k elements, so array became : {7,8,6,5,4,3,2,1}
  Reverse rest of elements, so array became  : {7,8,1,2,3,4,5,6}
+
+ Time complexity: o(n)
+ Space complexity: o(1)
 
  >>in above approach reverse is common
  *
@@ -31,6 +43,11 @@ public class RotateKTimes {
         reverseOptimized(arr,2);
     }
 
+    /*
+    Time complexity: o(n*k)
+    Where n is number of elements and k denotes position shift.
+    Space complexity: o(1)
+     */
     public static int[]  rotate(int[] input) {
         int rotateTimes= 2;
         printArrays(input);
@@ -47,6 +64,11 @@ public class RotateKTimes {
         }
         return input;
     }
+
+    /*
+    Time complexity: o(n)
+    Space complexity: o(1)
+     */
 
     public static int[] reverseOptimized(int[] myArray,int rotateTimes) {
         int end = myArray.length ;

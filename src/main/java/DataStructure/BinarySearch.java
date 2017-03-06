@@ -22,15 +22,10 @@ public class BinarySearch {
 
 
     }
-
-
-
     public static  boolean binarySearchElement(int[] input,int key) {
 
         int start = 0 ;
         int end = input.length -1 ;
-
-
         while (start <= end) {
             int middle = input.length/2 ;
 

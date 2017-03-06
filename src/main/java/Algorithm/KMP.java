@@ -10,6 +10,48 @@ import java.lang.management.ThreadMXBean;
  * Ref : https://github.com/ntallapa12/java_algos/blob/master/src/main/java/com/forum/java/algos/KMPAlgo.java
  *
  */
+
+//find substring in a string
+/*
+This algorithm is executed in two phases.
+1. Preprocessing Phase :
+In this phase, KMP algorithm creates a temporary array
+which is prepared from the pattern.
+We call this temporary array as Partial Match Table (PMT),
+lets call this PMT as b[i].
+
+a         : no prefix and no suffix since there is only one letter
+ab        : prefixes[a]
+            suffixes[b]
+abc       : prefixes[a,ab]
+            suffixes[c,bc]
+abca      : prefixes[a,ab,abc]
+            suffixes[a,ca,bca]
+abcab     : prefixes[a,ab,abc,abca]
+            suffixes[b,ab,cab,bcab]
+abcabd    : prefixes[a,ab,abc,abca,abcab]
+            suffixes[d,bd,abd,cabd,bcabd]
+abcabda   : prefixes[a,ab,abc,abca,abcab,abcabd]
+            suffixes[a,da,bda,abda,cabda,bcabda]
+abcabdab  : prefixes[a,ab,abc,abca,abcab,abcabd,abcabda]
+            suffixes[b,ab,dab,bdab,abdab,cabdab,bcabdab]
+abcabdabc : prefixes[a,ab,abc,abca,abcab,abcabd,abcabda,abcabdab]
+            suffixes[c,bc,abc,dabc,bdabc,abdabc,cabdabc,bcabdabc,abcabdabc
+
+a         : no prefix and no suffix since there is only one letter
+ab        : 0
+abc       : 0
+abca      : 1 [a]
+abcab     : 2 [ab] --- THIS IS LENGTH longerst THATS length(ab)
+abcabd    : 0
+abcabda   : 1 [a]
+abcabdab  : 2 [ab]
+abcabdabc : 3 [abc] --- THIS IS LENGTH longest THATS length(abb)
+
+
+2. Search Phase
+*/
+
 public class KMP {
 
 

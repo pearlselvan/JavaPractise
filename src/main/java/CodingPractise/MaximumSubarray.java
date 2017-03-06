@@ -8,10 +8,19 @@ package CodingPractise;
 
 /*
 
+Largest Sub Array sum problem :
+input :  -2 -3 4 -1 -2 1 5 -3
+               *  *  * * *
+
+* Indicates that MAX of continiuos sub array from orginal array
+
 Use : Kadane’s Algorithm:
 Kadane's algorithm consists of a scan through the array values,
-computing at each position the maximum (positive sum) subarray ending at that position.
-This subarray is either empty (in which case its sum is zero) or consists of one more element
+computing at each position the maximum (positive sum)
+subarray ending at that position.
+
+This subarray is either empty (in which case its sum is zero) or
+consists of one more element
 than the maximum subarray ending at the previous position.
 
 The algorithm only needs to keep track of the ending position because

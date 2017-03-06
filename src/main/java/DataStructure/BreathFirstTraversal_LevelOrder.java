@@ -29,6 +29,14 @@ public class BreathFirstTraversal_LevelOrder {
 
     public static void main(String[] args) {
         BreathFirstTraversal_LevelOrder BFT = new BreathFirstTraversal_LevelOrder();
+        BFT.root = new NodeBFT(10);
+        BFT.root.left = new NodeBFT(20);
+        BFT.root.right = new NodeBFT(30);
+        BFT.root.left.left = new NodeBFT(40);
+        BFT.root.left.right = new NodeBFT(50);
+
+        BFT.printLevelOrder();
+
     }
 
 /* Compute the "height" of a tree -- the number of

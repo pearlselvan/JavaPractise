@@ -43,6 +43,17 @@ public class BinarySearchTree {
     }
 
 
+    public void inOrder() {
+    //http://javabeat.net/binary-search-tree-traversal-java/
+    }
+
+    public void postOrder() {
+    //http://javabeat.net/binary-search-tree-traversal-java/
+    }
+
+    public void preOrder() {
+        //http://javabeat.net/binary-search-tree-traversal-java/
+    }
 
     public BinarySearchTree() {
         this.root = null ;
