@@ -12,6 +12,37 @@ import java.util.concurrent.LinkedBlockingDeque;
    that wait for the queue to become non-empty
    when retrieving an element,
    and wait for space to become available in the queue when storing an element.
+-----
+   Introducing blocking if either BlockingQueue is full or empty.
+   take() method of BlockingQueue will block if Queue is empty
+
+   and put() method of BlockingQueue will block if Queue is full.
+
+   This property makes BlockingQueue an ideal choice for implementing Producer consumer
+   design pattern where one thread insert element into BlockingQueue and other thread consumes it
+
+   Important points :
+   ------------------
+   1) BlockingQueue in Java doesn't allow null elements, various implementation of BlockingQueue
+    like ArrayBlockingQueue, LinkedBlockingQueue throws NullPointerException when you try to add null on queue.
+
+   2) BlockingQueue can be bounded or unbounded.
+
+   3. BlockingQueue implementations like ArrayBlockingQueue, LinkedBlockingQueue and PriorityBlockingQueue are thread-safe.
+
+ArrayBlockingQueue and LinkedBlockingQueue :
+---------------------------------------------
+
+common : ArrayBlockingQueue and LinkedBlockingQueue are common implementation of BlockingQueue<E> interface.
+ArrayBlockingQueue is backed by array and
+    ArrayBlockingQueue is also fixed size bounded buffer
+
+LinkedBlockingQueue is an optionally bounded queue built on top of Linked nodes.
+In terms of throughput LinkedBlockingQueue provides higher throughput than ArrayBlockingQueue in Java.
+
+------
+
+
  */
 
 /*
@@ -36,12 +67,17 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Created by muthuselvan on 2/3/17.
- * @see java.util.concurrent.LinkedBlockingQueue
  * @see java.util.concurrent.BlockingQueue
  * @see java.util.concurrent.ArrayBlockingQueue
  * @see java.util.concurrent.LinkedBlockingQueue
  * @see java.util.concurrent.PriorityBlockingQueue
  *
+ *            BlockingQueue
+ *   |------------------------------------------------|
+     |                      |                         |
+ArrayBlockingQueue      LinkedBlockingQueue   PriorityBlockingQueue
+
+
  */
 public class BlockingQueueDemo
 {

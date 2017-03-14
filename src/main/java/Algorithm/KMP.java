@@ -12,6 +12,7 @@ import java.lang.management.ThreadMXBean;
  */
 
 //find substring in a string
+//KMP algorithm does preprocessing over the pattern so that the pattern can be shifted by more than one.
 /*
 This algorithm is executed in two phases.
 1. Preprocessing Phase :
@@ -108,6 +109,8 @@ and P(i)!=T(j), then we dont need to reprocess
 any of the suffix T[j-(i-1)…j-1] since we know this portion
 of the text string is the prefix of the pattern
 that we have just matched.
+
+Time complexity of KMP algorithm is O(n) in worst case.
  */
    //This will retuen integer of array
     public static  int[] preProcessPattern(char[] ptrn) {

@@ -1,5 +1,7 @@
 package DataStructure;
 
+import java.util.Hashtable;
+
 /**
  * Created by muthuselvan on 3/6/17.
  * http://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/
@@ -71,5 +73,9 @@ package DataStructure;
 
  */
 public class BST_To_BalancedBST {
+
+    public static void main(String[] args) {
+//        Hashtable<K,V> hashtable = new Hashtable<K, V>();
+    }
 
 }

@@ -33,8 +33,6 @@ public class QueueDemo {
         queue.offer(909091);
 
 
-
-
         queue.forEach(q -> System.out.println(q));
 
     }
@@ -70,6 +68,45 @@ public class QueueDemo {
 
 
   //http://javarevisited.blogspot.com/2013/10/what-is-priorityqueue-data-structure-java-example-tutorial.html
+    //PriorityQueue is an unbounded Queue implementation
+    //Priority queue is also very useful in implementing Dijkstra algorithm (Shortest Path Algorithm in Java) in Java.
+    // PriorityQueue is also not synchronized,
+    //PriorityQueue in Java is that it's Iterator doesn't guarantee any order,
+    //PriorityQueue doesn't allow null elements, if you try to add null, it will throw java.lang.NullPointerException.
+    //PriorityQueue keeps the smallest element in head
+    //peek() returns the head of the  queue
+    // poll() remove the head of the queue
+
+
+   //When to use PriorityQueue in Java?
+   //Use when you want to process elements on some priority e.g. processing the highest priority element first
+    // or lowest priority element first. You can decide relative priority comparison by using Comparator interface and overriding
+    // compare() method.
+
+    // You can use PriorityQueue to process a job of highest priority first.
+    // If you are implementing a dashboard kind of interface, you can also use this class to bubble up important issues,
+    // alerts or notification at the top. Since you cannot store object, which is not comparable,
+    // its useless for them. You also need to pay some price for keeping the head as per priority
+    // so if you are not required that feature better not to use this class.
+
+   //  You cannot store incompatible elements in PriorityQueue,
+   // which means you cannot store Integer and String on a PriorityQueue of Object,
+    // this will result in ClassCastException
+
+    //Complexity :
+    //Time complexity of enqueuing and dequeuing elements is in order of O(log(n))
+
+//    PriorityQueue is based upon priority heap where elements are ordered on their priority
+
+
+
+
+
+
+
+
+
+
     public static void PriorityQueue() {
 
         System.out.println("Priority Q implementation ");
@@ -78,6 +115,23 @@ public class QueueDemo {
         pQueue.add("first");
         pQueue.add("second");
         pQueue.add("third");
+
+        System.out.println("PQ Adding integer Demo ");
+
+         ////////  PriorityQueue keeps the smallest element in head ///////////
+
+        Queue<Integer> qInteger = new PriorityQueue<>();
+        qInteger.add(1000);
+        qInteger.add(10);
+        qInteger.add(100);
+
+        Iterator<Integer> integerIterator = qInteger.iterator();
+
+        while (integerIterator.hasNext()) {
+            System.out.println("Integer Q : " +integerIterator.next());
+        }
+
+        ////////  PriorityQueue keeps the smallest element in head ///////////
 
         Queue<Item> itemQueue = new PriorityQueue<>();
         Item iphone = new Item("iPhone",100);

@@ -53,16 +53,49 @@ public class MaximumSubarray {
     }
 
     public static void main(String[] args) {
-        int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+//        int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+//        int [] a = {1,-3,1,3};
+        int [] a = {1,-1,1,3};
+       // System.out.println("Maximum contiguous sum is " +
+             //   maxSubArraySum(a));
+
+        maxSubArraySumUsingBruitForce(a);
+
         System.out.println("Maximum contiguous sum is " +
-                maxSubArraySum(a));
+                maxSequenceSum(a));
     }
 
 
+    //its not optimal : o(n2)
+    static int maxSubArraySumUsingBruitForce(int a[]) {
+            int maxSum = 0;
+
+        for (int i=0;i<a.length;i++) {
+            int currentSum = 0 ;
+            for (int j=i;j<a.length;j++) {
+//                System.out.println( i + "-" +j);
+                currentSum = currentSum + a[j] ;
+                if (currentSum > maxSum) {
+                    maxSum = currentSum ;
+                }
+            }
+//            System.out.println( "i : " +i +" Max end :  " +maxEnd);
+
+
+
+        }
+        System.out.println("Using bruit force" +maxSum);
+        return 1 ;
+    }
+
+    //optimal : o(n)
+    //max sub arra ending at the nth index is either current element x or current element combined with previous
+    //
     static int maxSubArraySum(int a[])
     {
         int size = a.length;
-        int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
+        int max_so_far = Integer.MIN_VALUE;
+        int max_ending_here = 0;
 
         for (int i = 0; i < size; i++)
         {
@@ -74,4 +107,25 @@ public class MaximumSubarray {
         }
         return max_so_far;
     }
+
+    static int maxSequenceSum(int[] arr)
+    {
+        int maxSoFar = arr[0], maxEndingHere = arr[0];
+
+        for (int i = 1; i < arr.length; i++)
+        {
+            /* calculate maxEndingHere */
+            if (maxEndingHere < 0)
+                maxEndingHere = arr[i];
+            else
+                maxEndingHere += arr[i];
+
+            /* calculate maxSoFar */
+            if (maxEndingHere >= maxSoFar)
+                maxSoFar = maxEndingHere;
+        }
+        return maxSoFar;
+    }
 }
+
+

@@ -7,10 +7,9 @@ import static org.junit.Assert.*;
  *
  * @author muthuselvan, @date 1/31/17 9:44 PM
  */
-//public class LibraryTest {
-////    @Test
-//    public void testSomeLibraryMethod() {
-//        Library classUnderTest = new Library();
-//        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
-//    }
-//}
+public class LibraryTest {
+    @Test
+    public void testSomeLibraryMethod() {
+        System.out.println("Testing UTF-8 compilation: C’est drôle, tout à coup je ne sais pas quoi dire.");
+    }
+}
