@@ -162,6 +162,17 @@ Turn on the -XX:+UseStringDeduplication JVM argument while using G1 garbage coll
  This option is introduced in Java 8 u 20.
 
 
+Does Garbage collection occur in permanent generation space in JVM?
+http://javarevisited.blogspot.com/2012/10/10-garbage-collection-interview-question-answer.html?m=1
+This  is a tricky Garbage collection interview question as many programmers are not sure
+whether PermGen space is part of Java heap space or not and since it maintains class Meta data and String pool,
+whether its eligible for garbage collection or not. By the way Garbage Collection does
+occur in PermGen space and if PermGen space is full or cross a threshold, it can trigger Full GC.
+If you look at output of GC you will find that PermGen space is also garbage collected.
+This is why correct sizing of PermGen space is important to avoid frequent full GC.
+You can control size of PermGen space by JVM options -XX:PermGenSize and -XX:MaxPermGenSize.
+
+
  */
 public class GarbageCollectionDemo {
 }

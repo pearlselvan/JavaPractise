@@ -25,6 +25,22 @@ What is a deadlock?
 
    Another way to avoid dead lock without synchronzation is immutable object by creating class as final and variable as final
    setting value though constructor and no setter and only getter ...
+
+    Default Stack Size for Java Threads :
+    --------------------------------------
+    This section lists the default stack sizes. You can change the thread stack size with the -Xss command line option, for example:
+    java -Xss:512k MyApplication
+
+    About Lock :
+    -------------
+    Synchronized code relies on a simple kind of reentrant lock.
+    This kind of lock is easy to use, but has many limitations.
+     More sophisticated locking idioms are supported by the java.util.concurrent.locks package.
+     We won't examine this package in detail, but instead will focus on its most basic interface, Lock.
+
+     Lock objects work very much like the implicit locks used by synchronized code.
+     As with implicit locks, only one thread can own a Lock object at a time. Lock objects also support a wait/notify mechanism, through their associated Condition objects.
+
  */
 
 

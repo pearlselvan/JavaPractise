@@ -5,6 +5,21 @@ package ObjectOrient;
  */
 
 /*
+Loose-Coupling:-
+----------------
+1.    In Loose-Coupling, when one object is depending on another class object, some external
+entity will provide that dependency object to the main object that external object we call as a Container.
+
+In order to get loose-coupling between objects the following two rules are required
+-------------------------------------------------------------------------------------
+http://javaeasy.weebly.com/types-of-coupling.html
+1.    The classes should follow POJI/POJO model.
+2.    Apply dependency injection mechanism.
+
+
+ */
+
+/*
  http://www.java4s.com/spring/spring-core-module-spring-ioc-tutorial/
  */
 public class LooselyCoupling {
