@@ -24,28 +24,83 @@ public class LinkedListImpl {
 
     public static void main(String[] args) {
         LinkedListImpl linkedList = new LinkedListImpl();
+
+//        linkedList.insertFirestwithNullCheck(51);
         linkedList.insertFirst(50);
-        linkedList.append(100);
-        linkedList.insertFirst(40);
-        linkedList.insertFirst(30);
-        linkedList.insertFirst(10);
-        linkedList.insertAfter(linkedList.head,15); // inser after head
-        linkedList.insertAfter(linkedList.head.next,17); // inser after head //head -> next -> insert
+        linkedList.append(40);
+        linkedList.append(30);
+        linkedList.append(20);
+        linkedList.printMiddle();
+//        linkedList.insertBefore(linkedList.head.next,44);
+//        linkedList.printList();
+//        linkedList.append(100);
+//        linkedList.insertFirst(40);
+//        linkedList.insertFirst(30);
+//        linkedList.insertFirst(10);
+//        linkedList.insertAfter(linkedList.head,15); // inser after head
+//        linkedList.insertAfter(linkedList.head.next,17); // inser after head //head -> next -> insert
         linkedList.printList();
         System.out.println("----Printing reverse----");
 
-        linkedList.printreverseLinkedList(linkedList.head);
-        linkedList.printreverseLinkedListUsingOneWalk(linkedList.head);
+//        linkedList.printreverseLinkedList(linkedList.head);
+//        linkedList.printreverseLinkedListUsingOneWalk(linkedList.head);
 
     }
 
+    //https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html
+    /*
+    Step 1: Create a newNode with given value.
+    Step 2: Check whether list is Empty (head == NULL)
+    Step 3: If it is Empty then, set newNode→next = NULL and head = newNode.
+    Step 4: If it is Not Empty then, set newNode→next = head and head = newNode.
+     */
+    //http://quiz.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
     public void insertFirst(int data) {
-        System.out.println("Insert first :" +data);
+        /* 1 & 2: Allocate the Node &
+                  Put in the data*/
         LLNode newNode = new LLNode(data); // This will create the new node
-        newNode.next = head ;
-        head=newNode;
+
+        /* 3. Make next of new Node as head */
+        newNode.next = head ;  //change new node's next pointer points to head (head mean first node ) by storing head address into newNode.next
+       /* 4. Move the head to point to new Node */
+        head=newNode; //based on the above the new node will become then we need  storing head address in newnode.next thats current node
+//        System.out.println("Head Address : " +head);
     }
 
+
+
+    public void printMiddle() {
+        LLNode fast = head ;
+        LLNode slow= head  ;
+        if (head!=null) {
+            while (fast!=null && fast.next != null) {
+//                while (fast!=null) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+        }
+        System.out.println("Middle : " +slow.data);
+
+    }
+
+    public void insertBefore(LLNode beforeNode , int data) {
+        LLNode newNode = new LLNode(data);
+        newNode.next = beforeNode;
+        beforeNode.next = newNode;
+
+    }
+
+    public void insertFirestwithNullCheck(int data) {
+        LLNode newNode = new LLNode(data);
+        if (head == null) {
+            head = newNode;
+            return;
+
+
+        }
+        newNode.next = head;
+        head = newNode;
+    }
 
     /*
 Complexity
@@ -70,25 +125,12 @@ mean stepping back to previous!
 
         System.out.println("Printing Reverse using OneWalk");
         while (current != null) {
-
             nextNode = current.next;
-
             current.next = previuosNode;
-
-            previuosNode = current ;
-
-
-            System.out.println("<= :" +previuosNode.data);
-
-
+            previuosNode = current;
+            System.out.println("<= :" + previuosNode.data);
             current = nextNode;
-
-
-
         }
-
-
-
     }
 
     public void printreverseLinkedList(LLNode first) {
@@ -98,6 +140,9 @@ mean stepping back to previous!
         printreverseLinkedList(first.next);
         System.out.print("->" +first.data);
     }
+
+
+
 
     public void insertAfter(LLNode prevNode , int data) {
         System.out.println("Inserting " +data +" after : " +prevNode.data);
@@ -122,21 +167,30 @@ mean stepping back to previous!
 
     public void append(int data) {
         System.out.println("Appening " +data);
+        /* 1. Allocate the Node &
+       2. Put in the data
+       3. Set next as null */
           LLNode newNode = new LLNode(data); // Node which is going to insert
 
+        /* 4. If the Linked List is empty, then make the
+           new node as head */
         if (head == null) {
             LLNode firstNode = new LLNode(data);
             return;
         }
 
         //last node will be null
+         /* 4. This new node is going to be the last node, so
+         make next of it as null */
         newNode.next = null ;
-        LLNode last =  head ;
 
+        /* 5. Else traverse till the last node */
+        LLNode last =  head ;
         while (last.next != null) {
             last=last.next;
         }
 
+        /* 6. Change the next of last node */
         last.next = newNode;
         return;
 

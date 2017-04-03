@@ -2,7 +2,7 @@ package DataStructure;
 
 /**
  * Created by muthuselvan on 3/8/17.
- * http://articles.leetcode.com/convert-sorted-array-into-balanced/
+ * http://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
  */
 
 /*

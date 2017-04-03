@@ -64,8 +64,4 @@ class Tree {
         this.data = data;
         left=right=null ;
     }
-
-
-
-
 }
