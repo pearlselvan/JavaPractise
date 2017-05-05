@@ -12,8 +12,8 @@ public class FibonacchiDynamic {
 
     public static void main(String[] args) {
         //0 1 1 2 3 5 8 13 21 34 55 -- Series so if i given x= 9 then 9 th position 34
-        System.out.println(fibRecurr(5));
-        System.out.println(fibDP(5));
+        System.out.println(fibRecurr(4));
+        System.out.println(fibDP(4));
 
     }
 

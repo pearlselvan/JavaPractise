@@ -105,17 +105,15 @@ public class BinarySearchTree {
           if (data < current.data) {
               current = current.left;
               if (current == null) {
-                  parent.left = newNode ;
+                  parent.left = newNode;
                   return;
               }
-
           } else {
               current = current.right;
               if (current == null) {
                   parent.right= newNode;
                   return;
               }
-
           }
         }
     }

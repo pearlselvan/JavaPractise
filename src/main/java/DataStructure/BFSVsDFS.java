@@ -40,18 +40,9 @@ Extra Space required for Depth First Traversals is O(h)
 where h is maximum height of Binary Tree.
 In Depth First Traversals, stack (or function call stack)
 stores all ancestors of a node.
-
-
-
-
  */
 
 public class BFSVsDFS {
-
-
-
-
-
 
 }
 

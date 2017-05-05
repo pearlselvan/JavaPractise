@@ -102,36 +102,37 @@ public class QuickSortExplained {
 
         this.sortedArray = data ;
         this.length = data.length;
-        quikcSort(0,length-1);
+        partion(0,length-1);
     }
 
 
-    public static void quikcSort(int low,int high) {
-        int i=low, j = high;
+    public static void partion(int low,int high) {
+        int left=low, right = high;
         int pivot = sortedArray[low + (high - low) /2 ];
         System.out.println("Pivot  : " +pivot);
         //Partionining : Divide the array in two list :  Left + Pivot + Right
         // Left : Less then Pivot
         // Right: Greater then Pivot
-        while (i<=j) {
+        while (left<=right) {
             //Left side move :
             // if the current value less then pivot then move the pointer of the current element
             // that is get the next element from the list
-            while (sortedArray[i] < pivot) {
-                i++ ;// if current from left side  < pivot then no need swap then move the pointer to check the next element
+            while (sortedArray[left] < pivot) {
+                left++ ;// if current from left side  < pivot then no need swap then move the pointer to check the next element
             }
 
-            while (sortedArray[j] > pivot) {
-                j--; // if the current from right side > pivot then no need swap then move the pointe to checn the next element
+            while (sortedArray[right] > pivot) {
+                right--; // if the current from right side > pivot then no need swap then move the pointe to checn the next element
             }
           // if the above while condition not then what should i do ?
             // Yes swap the element so that left side will be lesser then pivot
             // greater will be right side of the pivot
 
-            if (i<=j) {
-                swap(i,j);
-                i++;
-                j--;
+            if (left<=right) {
+
+                swap(left,right);
+                left++;
+                right--;
             }
             printarray(sortedArray);
             System.out.print("---------");
@@ -147,10 +148,10 @@ public class QuickSortExplained {
         // and right side recursively
 
         //when my recursion will exit ? when
-        if (low < j)
-            quikcSort(low,j);
-        if (i < high)
-            quikcSort(i,high);
+        if (low < right)
+            partion(low,right);
+        if (left < high)
+            partion(left,high);
     }
 
     public static void swap(int leftindex , int rightindex) {

@@ -16,6 +16,15 @@ public class StepsPossiblePathsRecur {
         int[] dyn = new int[n + 1];
         System.out.println(poosibleWaysDyna(3,dyn));
 
+        int a = 8 ;
+        int b = 7 ;
+        int c = a < b ? b : a ;
+        int d = a < b ? a : b ;
+        System.out.println(c);
+        System.out.println(d);
+
+
+
 
 
     }

@@ -26,19 +26,22 @@ public class LinkedListImpl {
         LinkedListImpl linkedList = new LinkedListImpl();
 
 //        linkedList.insertFirestwithNullCheck(51);
-        linkedList.insertFirst(50);
+//        linkedList.insertFirst(50);
+        linkedList.insertFirst(140);
         linkedList.append(40);
         linkedList.append(30);
         linkedList.append(20);
-        linkedList.printMiddle();
+//        linkedList.printMiddle();
 //        linkedList.insertBefore(linkedList.head.next,44);
 //        linkedList.printList();
 //        linkedList.append(100);
-//        linkedList.insertFirst(40);
+
 //        linkedList.insertFirst(30);
 //        linkedList.insertFirst(10);
 //        linkedList.insertAfter(linkedList.head,15); // inser after head
 //        linkedList.insertAfter(linkedList.head.next,17); // inser after head //head -> next -> insert
+//        linkedList.printList();
+        linkedList.deleteWithData(30);
         linkedList.printList();
         System.out.println("----Printing reverse----");
 
@@ -101,6 +104,30 @@ public class LinkedListImpl {
         newNode.next = head;
         head = newNode;
     }
+    //https://www.youtube.com/watch?v=njTh_OwMljA&list=PLX6IKgS15Ue02WDPRCmYKuZicQHit9kFt&index=28
+    public void deleteWithData(int data ) {
+        System.out.println("Deleing 1 " +data);
+
+        if (head == null ) return;
+
+        if (head.data == data) {
+            head=head.next;
+        }
+
+        LLNode current = head ;
+
+        while (current.next!=null) {
+            if (current.next.data == data) {
+                System.out.println("Deleting " +data);
+// This will stop before deleting the node that is previous node
+                // we need walk around the node
+                current.next = current.next.next;
+                return;
+            }
+            current=current.next;
+        }
+
+    }
 
     /*
 Complexity
@@ -141,9 +168,6 @@ mean stepping back to previous!
         System.out.print("->" +first.data);
     }
 
-
-
-
     public void insertAfter(LLNode prevNode , int data) {
         System.out.println("Inserting " +data +" after : " +prevNode.data);
 
@@ -153,15 +177,9 @@ mean stepping back to previous!
         }
 
         LLNode newNode = new LLNode(data);
-
         newNode.next = prevNode.next;
         prevNode.next = newNode;
         return;
-
-
-
-
-
 
     }
 

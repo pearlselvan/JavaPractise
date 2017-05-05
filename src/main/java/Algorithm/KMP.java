@@ -8,11 +8,12 @@ import java.lang.management.ThreadMXBean;
  * Ref : https://tekmarathon.com/2013/05/14/algorithm-to-find-substring-in-a-string-kmp-algorithm/ (understand flow )
  * Ref : http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/ ( understand How works )
  * Ref : https://github.com/ntallapa12/java_algos/blob/master/src/main/java/com/forum/java/algos/KMPAlgo.java
- *
+ * Knuth–Morris–Pratt algorithm
  */
 
 //find substring in a string
-//KMP algorithm does preprocessing over the pattern so that the pattern can be shifted by more than one.
+//KMP algorithm does pre processing over the pattern
+// so that the pattern can be shifted by more than one.
 /*
 This algorithm is executed in two phases.
 1. Preprocessing Phase :
@@ -20,6 +21,12 @@ In this phase, KMP algorithm creates a temporary array
 which is prepared from the pattern.
 We call this temporary array as Partial Match Table (PMT),
 lets call this PMT as b[i].
+
+Big - O - Notation :
+---------------------
+Time complexity for building PMT table : o(n)
+Space complexity for building PMT table : o(n)
+
 
 a         : no prefix and no suffix since there is only one letter
 ab        : prefixes[a]
@@ -114,9 +121,13 @@ Time complexity of KMP algorithm is O(n) in worst case.
  */
    //This will retuen integer of array
     public static  int[] preProcessPattern(char[] ptrn) {
+
+        // i is the first pointer from pattern that move from starting to end ..
+        // j is the laster pointer from pattern that move from backward to forward direction
         int i = 0, j = -1;
         int ptrnLen = ptrn.length;
         int[] pmtTable = new int[ptrnLen + 1];
+
 
         pmtTable[i] = j; // initialized pmt table
         while (i < ptrnLen) {
@@ -182,7 +193,8 @@ Time complexity of KMP algorithm is O(n) in worst case.
 
      */
     public static void searchSubString(char[] text, char[] ptrn) {
-        int i = 0, j = 0;
+        int i = 0; // i is the pointer for text
+        int j = 0; // j is the pointer for pmt table from pre pre prossing stage
         // pattern and text lengths
         int ptrnLen = ptrn.length;
         int txtLen = text.length;
@@ -202,7 +214,9 @@ Time complexity of KMP algorithm is O(n) in worst case.
             i++;
             j++;
 
-            // a match is found
+            // a match is found , where index of the text where the matching found and i in below sub string
+            // Ex :  text : muthuselvan patten : sel
+            // FOUND SUBSTRING AT i 8 and index:5
             if (j == ptrnLen) {
                 System.out.println("FOUND SUBSTRING AT i " + i + " and index:"
                         + (i - ptrnLen));

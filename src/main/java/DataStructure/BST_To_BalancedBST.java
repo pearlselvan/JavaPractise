@@ -4,10 +4,21 @@ import java.util.Hashtable;
 
 /**
  * Created by muthuselvan on 3/6/17.
- * http://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/
+ * http://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
 
  Given a BST (Binary Search Tree) that may be unbalanced,
  convert it into a balanced BST that has minimum possible height.
+
+
+ STEPS :
+ ========
+
+ 1) Get the Middle of the array and make it root.
+ 2) Recursively do same for left half and right half.
+ a) Get the middle of left half and make it left child of the root
+ created in step 1.
+ b) Get the middle of right half and make it right child of the
+ root created in step 1.
 
  Exmaple :
 

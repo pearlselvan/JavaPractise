@@ -16,8 +16,15 @@ package DynamicProgramming;
     in below T[0]0] will TRUE , indicate that will be true because two empty will be match
    then its true
 
+ T[0][0] is TRUE : is NULL or  empty patten as same as with empty string is going match so thats why
+ is going always match
+
+
          How to fill T[1][1] , according to the first condition
          if String[1] == pattern[1] || pattern[1] = '?' then T[1][1] = T[0][0]
+
+         T[0][1] = false because empty string does not match with any string  similarly
+         for colum that will be always
 
              0     1    2    3     4     5      6
 

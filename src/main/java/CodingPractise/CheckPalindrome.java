@@ -1,5 +1,7 @@
 package CodingPractise;
 
+import static java.util.Objects.hash;
+
 /**
  * Created by muthuselvan on 2/7/17.
  * https://examples.javacodegeeks.com/core-java/palindrome-program-in-java/
@@ -11,6 +13,15 @@ public class CheckPalindrome {
     }
 
     public static void main(String[] args) {
+
+        int x = hash("V");
+        System.out.println("int x " +x);
+
+
+        x = hash("V") ;
+        System.out.println("int x " +x);
+
+
         System.out.println("Is Palindrom " +isPalindrome("RART"));
         System.out.println("Is Palindrom " +isPalindrome("RAR"));
     }

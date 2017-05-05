@@ -2,6 +2,22 @@ package DataStructure;
 
 /**
  * Created by muthuselvan on 2/6/17.
+ *
+ *
+ * Big O Notation :
+ * Worst case : o(log n)
+ *
+ * Binary Search (Worst Case)
+ Number of elements Number of Comparisons
+ 15                  4
+ 31                  5
+ 63                  6
+ 127                 7
+ 255                 8
+ 511                 9
+ 1023               10
+ 1 million          20
+ *
  */
 public class BinarySearch {
 
@@ -22,30 +38,30 @@ public class BinarySearch {
 
 
     }
-    public static  boolean binarySearchElement(int[] input,int key) {
-
-        int start = 0 ;
-        int end = input.length -1 ;
-        while (start <= end) {
-            int middle = input.length/2 ;
-
-            System.out.println("Middle : " +middle);
-
-            if (input[middle]  == key) {
-                return true ;
-            }
-            if (input[middle] > key) {
-                start = middle +1;
-            }
-
-            if ( input[middle] > key) {
-                end = middle -1 ;
-            }
-        }
-        return false ;
-
-
-    }
+//    public static  boolean binarySearchElement(int[] input,int key) {
+//
+//        int start = 0 ;
+//        int end = input.length -1 ;
+//        while (start <= end) {
+//            int middle = input.length/2 ;
+//
+//            System.out.println("Middle : " +middle);
+//
+//            if (input[middle]  == key) {
+//                return true ;
+//            }
+//            if (input[middle] > key) {
+//                start = middle +1;
+//            }
+//
+//            if ( input[middle] > key) {
+//                end = middle -1 ;
+//            }
+//        }
+//        return false ;
+//
+//
+//    }
 
 
 
