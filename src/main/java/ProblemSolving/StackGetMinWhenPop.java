@@ -27,7 +27,13 @@ public class StackGetMinWhenPop {
         myStock.push(2);
         myStock.push(1);
         myStock.push(30);
+
         myStock.push(310);
+        System.out.println("Pop : " +myStock.popdata());
+        System.out.println("Pop : " +myStock.popdata());
+        System.out.println("Pop : " +myStock.popdata());
+
+
         System.out.println("Min in Stock : " +myStock.getMin());
     }
 
@@ -47,6 +53,10 @@ class MyStock {
 
     public void push(int data) {
         stack.push(data);
+    }
+
+    public int popdata() {
+        return stack.pop();
     }
 
     public int getMin() {

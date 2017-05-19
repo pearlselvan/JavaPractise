@@ -42,6 +42,15 @@ Managing shopping cart in online shopping
 /*
 
 http://techyrajeev.blogspot.com/2012/03/java-tutorial-on-circular-doubly-linked.html
+
+Circular Doubly Linked List is very much similar to Doubly Linked List
+with few differences such as there is no end of the list
+i.e Head node points to Tail node and Tail node also points to Head node.
+So if you do not properly check the termination condition then you will probably
+find yourself in an infinite loop.
+Circular Doubly Linked List is advanced version of Circular Linked List.
+
+http://algorithms.tutorialhorizon.com/circular-linked-list-complete-implementation/
  */
 
 public class DoublyLinkedListAsCircular {

@@ -73,7 +73,6 @@ class minStack {
         if (currentStack.peek() <=minStack.peek()) {
             minStack.pop();
         }
-
         return currentStack.pop();
     }
 

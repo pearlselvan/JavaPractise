@@ -3,10 +3,56 @@ package Collections;
 import java.util.*;
 
 /*
+https://www.javacodegeeks.com/2013/03/difference-between-comparator-and-comparable-in-java.html
 1.Comparable is implemented by a class in order to be
 able to comparing object of itself with some other objects.
 2.The method required for implementation is compareTo()
 3.
+
+
+Comparator vs Comparable
+=========================
+
+Comparator :
+------------
+1. Sorting logic:
+
+Sorting logic must be in same class whose objects are being sorted.
+Hence this is called natural ordering of objects
+
+
+2. Sorting method	int compareTo(Object o1)
+This method compares this object with o1 object and returns a integer.Its value has following meaning
+1. positive – this object is greater than o1
+2. zero – this object equals to o1
+3. negative – this object is less than o1	int compare(Object o1,Object o2)
+
+3. Calling method	Collections.sort(List)
+Here objects will be sorted on the basis of CompareTo method	Collections.sort(List, Comparator)
+Here objects will be sorted on the basis of Compare method in Comparator
+
+4. Package :	Java.lang.Comparable
+
+Comparable :
+------------
+
+1. Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects to be sorted. E.g. Sorting using id,name etc.
+Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement comparable to collection of country object by id	Class whose objects to be sorted do not need to implement this interface.Some other class can implement this interface. E.g.-CountrySortByIdComparator class can implement Comparator interface to sort collection of country object by id
+
+2.This method compares o1 and o2 objects. and returns a integer.Its value has following meaning.
+1. positive – o1 is greater than o2
+2. zero – o1 equals to o2
+3. negative – o1 is less than o1
+
+
+3. Calling method :
+Collections.sort(List, Comparator)
+Here objects will be sorted on the basis of Compare method in Comparator
+
+
+Java.util.Comparator
+Java code:
+
  */
 public class ComparableDemo {
     public static void main(String[] args) {

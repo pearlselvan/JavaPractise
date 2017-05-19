@@ -10,19 +10,12 @@ public class FindMaxTwo {
 
     public static void main(String[] args) {
         System.out.println( 2 >> 4);
-
         first2Max(new int[] {90,20,110,20,500});
-
         first3Max(new int[] {1,2,3,4,-5});
-
         first2MaxEfficientSolution(new int[] {1, 4, 3, 6, 7, 0},2);
-
     }
 
     public static void first2Max(int[] nums) {
-
-
-
         int firstMAX = 0 ;
         int secondMAX = 0 ;
 

@@ -79,14 +79,11 @@ public class BinaryTree {
     }
 
     void printPostOrder(BTNode node) {
-
         if (node !=null) {
             printPostOrder(node.left);
             printPostOrder(node.right);
             System.out.print("[ " +node.data +" ]");
         }
-
-
     }
 
 

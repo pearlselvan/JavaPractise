@@ -38,11 +38,12 @@ class DoublyLinkedList1
     {
         Link newLink = new Link(dd);   // make new link
 
-        if( isEmpty() )                // if empty list,
+        if( isEmpty() ) {                // if empty list,
             tail = newLink;             // newLink <-- last
-        else
-
+        }
+        else {
             head.previous = newLink;   // newLink <-- old first
+        }
         newLink.next = head;          // newLink --> old first
         head = newLink;               // first --> newLink
     }

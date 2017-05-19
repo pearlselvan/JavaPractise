@@ -5,6 +5,10 @@ package ObjectOrient;
  */
 
 /*
+
+Real use :
+Immutable class is good for caching purpose because you don’t need to worry about the value changes.
+
 1. Concurrency and multithreading advantage provided by immutable objects
 2. Immutable object not only guarantees safe publication of object’s state, but also can be shared among other threads without
 any external synchronization.

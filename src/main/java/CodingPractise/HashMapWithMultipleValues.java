@@ -75,16 +75,16 @@ public class HashMapWithMultipleValues {
     public static void HashMapEx() {
         HashMap<Integer,String> emp = new HashMap<>();
         emp.put(1,"Muthu");
-        emp.put(1,"Revanth");
-        emp.put(1,"Rama");
-        Set hset = emp.entrySet();
-
-        Iterator iterator = hset.iterator();
-
-        while (iterator.hasNext()) {
-            Map.Entry me  = (Map.Entry) iterator.next();
-            System.out.println(me.getKey());
-        }
+        emp.put(2,"Revanth");
+        emp.put(3,"Rama");
+//        Set hset = emp.entrySet();
+//
+//        Iterator iterator = hset.iterator();
+//
+//        while (iterator.hasNext()) {
+//            Map.Entry me  = (Map.Entry) iterator.next();
+//            System.out.println(me.getKey());
+//        }
 
 
         for (Map.Entry<Integer,String> my : emp.entrySet()) {
@@ -92,6 +92,16 @@ public class HashMapWithMultipleValues {
             System.out.println("Using smart approach "+my.getValue());
 
         }
+
+        //Java 8 approach
+         emp.forEach((k,v)-> System.out.println(" Java 8 Key : " +k+ " : Value " +v));
+
+        emp.forEach((k,v)-> {
+            if ("Muthu".equals(v)) {
+                System.out.println("Key " +k);
+            }
+        });
+
 
 
 

@@ -27,9 +27,7 @@ Binary Search Tree Opearation :
  */
 
 public class BinarySearchTree {
-
     public static NodeBST root ;
-
 
     public static void main(String[] args) {
         BinarySearchTree binarySearchTree = new BinarySearchTree();
@@ -62,19 +60,15 @@ public class BinarySearchTree {
     //use recursion
     //To know about how we are dis­play­ing nodes in increas­ing order
     public void display(NodeBST root) {
-
         if (root != null ) {
             display(root.left);
             System.out.print(" => " +root.data);
             display(root.right);
         }
-
     }
 
     public boolean find(int data) {
-
         NodeBST current = root ;
-
         while(current != null ) {
             if (current.data == data) {
                 return true;

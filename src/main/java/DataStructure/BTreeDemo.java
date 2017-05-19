@@ -9,9 +9,11 @@ package DataStructure;
 
 Binary Tree : ( its extension of binary search tree )
 It is a tree data structure in which each node has at most two children.
-As such there is no relation between a parent and its left and right descendants. Hence they are unordered.
+As such there is no relation between a parent and its left and right descendants.
+Hence they are unordered.
 
-Binary Search Tree : These are ordered binary trees with a recursive relation left<root<right
+Binary Search Tree : These are ordered binary trees with a recursive relation
+left<root<right
 which is followed at every node. Its due to this rule that helps in faster search,insertion and deletion.
 The best case is achieved when the tree is balanced.
 

@@ -9,7 +9,16 @@ import java.util.concurrent.TimeUnit;
 //Ref : https://meteatamel.wordpress.com/2012/03/21/deadlock-detection-in-java/
 
 
+
+
 /*
+
+What is synchronzied block will do ?
+ if a thread is already executing inside a synchronized block and another thread tries
+  to enter the block, it has to wait until the currently running thread exits the block.
+   As long as the thread does not enter the synchronized block it remains blocked and cannot be interrupted.
+
+
 What is a deadlock?
  Imagine you have two threads, thread1 and thread2.
  Thread1 acquires lock1 and is about to acquire lock2 while thread2 acquires lock2 and is about to acquire lock1.
@@ -25,6 +34,11 @@ What is a deadlock?
 
    Another way to avoid dead lock without synchronzation is immutable object by creating class as final and variable as final
    setting value though constructor and no setter and only getter ...
+
+
+   How do you detect deadlock in Java ?
+   ------------------------------------
+    my version is first I would look the code if I see nested synchronized block or calling one synchronized method from other or trying to get lock on different object then there is good chance of deadlock if developer is not very careful.
 
     Default Stack Size for Java Threads :
     --------------------------------------
@@ -48,18 +62,9 @@ What is a deadlock?
 
 public class DeadLockAvoid {
 
-
-
-
     public static void main(String[] args) throws InterruptedException {
-
         deadLockExample(); // How to get the thread dump ? use jstack
-
-
-
     }
-
-
 
     public static void deadLockExample() {
         final Object lock1 = new Object();
@@ -75,7 +80,7 @@ public class DeadLockAvoid {
                         e.printStackTrace();
                     }
                     synchronized (lock2) {
-                        System.out.println("Thread 1 acquired lock 1");
+                        System.out.println("Thread 1 acquired lock 2");
                     }   // sub synchronized block ends here
 
                 }  // main synchronized block ends here
@@ -85,7 +90,7 @@ public class DeadLockAvoid {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (lock2) { // main synchronized block start here
+                synchronized (lock2) { // main synchronized block start here // This will cause the deadlock because
                     System.out.println("Thread 2 acquired lock 2");
                     try {
                         Thread.sleep(50);
