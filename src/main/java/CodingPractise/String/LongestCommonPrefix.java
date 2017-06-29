@@ -5,19 +5,36 @@ package CodingPractise.String;
  * http://www.geeksforgeeks.org/longest-common-prefix-set-1-word-by-word-matching/
  *
  * java impl : https://leetcode.com/articles/longest-common-prefix/#approach-4-binary-search
+ *
+ * Problem :
+ * =========
+ * Given a set of strings, find the longest common prefix.
+
+    Input  : {“geeksforgeeks”, “geeks”, “geek”, “geezer”}
+    Output : "gee"
+
+    Input  : {"apple", "ape", "april"}
+    Output : "ap"
+
+
+ Logic :
+ =========
+
+ LCP(string1, string2, string3)
+ = LCP (LCP (string1, string2), string3)
+
+ Like here
+
+ LCP (“geeksforgeeks”, “geeks”, “geek”)
+ =  LCP (LCP (“geeksforgeeks”, “geeks”), “geek”)
+ =  LCP (“geeks”, “geek”) = “geek”
+ *
  */
 public class LongestCommonPrefix {
-
     public static void main(String[] args) {
-
-
         String[] data = {"apple", "ape", "april"};
         System.out.println(commonPrefix(data,data.length-1));
         System.out.println("-"+commonPrefixUsingMinStringlength(data));
-
-
-
-
     }
 /*
 Time Complexity : Since we are iterating through all the strings and for each string
@@ -123,7 +140,7 @@ the strings, so we can say that the time complexity is O(N M) where,
          String prefix =  arr[0];
 
          for (int i=1; i<=n-1; i++)
-             prefix = commonPrefixUtil(prefix, arr[i]);
+             prefix = commonPrefixUtil(prefix, arr[i]); // This is recursively call
          return prefix;
 
 

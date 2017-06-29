@@ -171,7 +171,7 @@ class Graph {
 
     @Override
     public String toString() {
-        return "Graph{" +
+        return "GraphDemo{" +
                 "v=" + V +
                 ", adj=" + Arrays.toString(adj) +
                 '}';

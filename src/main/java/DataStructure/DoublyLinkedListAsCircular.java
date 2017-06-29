@@ -61,9 +61,7 @@ public class DoublyLinkedListAsCircular {
     }
 
     public void insert(int data) {
-
         LLNode newNode = new LLNode(data);
-
     }
 
     public void dislay(LLNode head) {

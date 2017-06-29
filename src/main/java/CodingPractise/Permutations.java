@@ -1,5 +1,7 @@
 package CodingPractise;
 
+import java.util.ArrayList;
+
 /**
  * Created by muthuselvan on 3/5/17.
  * http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
@@ -7,8 +9,9 @@ package CodingPractise;
 
 /*
 Two approach :
-1 . Recursion
-2 . Iteration
+1 . Recursion : http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+2 . Iteration : http://www.geeksforgeeks.org/permutations-string-using-iteration/
+3.  Algorithm Paradigm: Backtracking : http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
 
  */
 public class Permutations {
@@ -20,6 +23,13 @@ public class Permutations {
         Permutations permutation = new Permutations();
         System.out.println("F" +permutation.fact(n));
         permutation.permute(str, 0, n-1);
+//        System.out.println();
+
+
+        int[] m = {1,2,3};
+        ArrayList mylist = permuteUsingArrayList(m);
+        mylist.forEach(out-> System.out.println(out));
+
     }
 
 
@@ -120,6 +130,40 @@ The new string to “play” will be “bacd”.
         b=temp;
 
     }
+
+
+    public static ArrayList<ArrayList<Integer>> permuteUsingArrayList(int[] num) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+
+        //start from an empty list
+        result.add(new ArrayList<Integer>());
+
+        for (int i = 0; i < num.length; i++) {
+            //list of list in current iteration of the array num
+            ArrayList<ArrayList<Integer>> current = new ArrayList<ArrayList<Integer>>();
+
+            for (ArrayList<Integer> l : result) {
+                // # of locations to insert is largest index + 1
+                for (int j = 0; j < l.size()+1; j++) {
+                    // + add num[i] to different locations
+                    l.add(j, num[i]);
+
+                    ArrayList<Integer> temp = new ArrayList<Integer>(l);
+                    current.add(temp);
+
+                    //System.out.println(temp);
+
+                    // - remove num[i] add
+                    l.remove(j);
+                }
+            }
+
+            result = new ArrayList<ArrayList<Integer>>(current);
+        }
+
+        return result;
+    }
+
 
     public void printPermutationUsingIteration(String s) {
         // // Find length of string and factorial of length

@@ -7,7 +7,8 @@ package Algorithm.Sort;
 // Imple : http://www.java2novice.com/java-sorting-algorithms/quick-sort/
 
     /*
-    Big : o(nlogn)
+    Big : o(nlogn) -Avg case
+    o(n^2) - Worst case
 
 Quicksort can be implemented to sort "in-place".
 This means that the sorting takes place in the array

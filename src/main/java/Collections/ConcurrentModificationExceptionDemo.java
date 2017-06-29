@@ -7,6 +7,29 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by muthuselvan on 2/2/17.
+ *
+ * What is Concurrent modification exception ?
+ * ---------------------------------------------
+ * Java Collection classes are fail-fast, which means if the Collection will be changed
+ * while some thread is traversing over it using iterator, the iterator.next() will throw ConcurrentModificationException.
+ *
+ * Concurrent modification exception can come in case of multithreaded as well as single threaded java programming
+ * environment.
+ *
+ * How to avoid ?
+ * ----------------
+ *
+ * 1.You can convert the list to an array and then iterate on the array. This approach works well for small or medium
+ * size list but if the list is large then it will affect the performance a lot.
+   2. You can lock the list while iterating by putting it in a synchronized block.
+    This approach is not recommended because it will cease the benefits of multithreading.
+   3.If you are using JDK1.5 or higher then you can use ConcurrentHashMap and CopyOnWriteArrayList classes.
+    This is the recommended approach to avoid concurrent modification exception.
+
+
+
+ *
+ *
  */
 public class ConcurrentModificationExceptionDemo {
 

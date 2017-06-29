@@ -2,6 +2,10 @@ package CodingPractise;
 
 /**
  * Created by muthuselvan on 4/16/17.
+ * http://algorithms.tutorialhorizon.com/replace-all-spaces-in-a-string-with/
+ *
+ *
+ *
  */
 public class URLifyString {
 
@@ -15,7 +19,14 @@ public class URLifyString {
 
 //        System.out.println(urlify(url.toCharArray(),13));
 
-        System.out.println(replace(url.toCharArray(),url.length()));
+//        System.out.println(replace(url.toCharArray(),url.length()));
+
+
+        String s1 = "I am Sumit Jain";
+        int trueLength = s1.length();
+        System.out.println("Input String : " + s1);
+        URLifyString r = new URLifyString();
+        r.replace(s1, trueLength);
     }
 
 
@@ -35,6 +46,31 @@ public class URLifyString {
             }
         }
         return str;
+    }
+
+    public void replace(String s1, int length) {
+        char[] chars = s1.toCharArray();
+        int spaceCount = 0;
+        for (int i = 0; i < length; i++) {
+            if (chars[i] == ' ') {
+                spaceCount++;
+            }
+        }
+        int newLength = length + 2 * spaceCount;
+        char [] charsNew = new char [newLength];
+        for (int i = length - 1; i >= 0; i--) {
+            if (chars[i] == ' ') {
+                charsNew[newLength - 1] = '0';
+                charsNew[newLength - 2] = '2';
+                charsNew[newLength - 3] = '%';
+                newLength = newLength - 3;
+            } else {
+//				System.out.println(chars[i]);
+                charsNew[newLength - 1] = chars[i];
+                newLength = newLength - 1;
+            }
+        }
+        System.out.println("Output String : " + String.valueOf(charsNew));
     }
 
     private static int countSpaces(char[] str, int length) {

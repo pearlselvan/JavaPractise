@@ -2,7 +2,14 @@ package CodingPractise;
 
 /**
  * Created by muthuselvan on 4/2/17.
+ * Inplace rotate square matrix by 90 degrees | Set 1 :
+ * =====================================================
  * http://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/
+ *
+ * Rotate a matrix by 90 degree without using any extra space | Set 2
+ * ==================================================================
+ * http://www.geeksforgeeks.org/rotate-matrix-90-degree-without-using-extra-space-set-2/
+ *
  */
 public class RotateSquareMatrix_90_Degree {
 

@@ -10,7 +10,7 @@ import java.util.Comparator;
  * Comparator vs Comparable
  =========================
 
- Comparator :
+ Comparable :
  ------------
  1. Sorting logic:
 
@@ -30,11 +30,14 @@ import java.util.Comparator;
 
  4. Package :	Java.lang.Comparable
 
- Comparable :
+ Comparator :
  ------------
 
- 1. Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects to be sorted. E.g. Sorting using id,name etc.
- Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement comparable to collection of country object by id	Class whose objects to be sorted do not need to implement this interface.Some other class can implement this interface. E.g.-CountrySortByIdComparator class can implement Comparator interface to sort collection of country object by id
+ 1. Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects
+ to be sorted. E.g. Sorting using id,name etc.
+ Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement
+ comparable to collection of country object by id	Class whose objects to be sorted do not need to implement this interface.
+ Some other class can implement this interface. E.g.-CountrySortByIdComparator class can implement Comparator interface to sort collection of country object by id
 
  2.This method compares o1 and o2 objects. and returns a integer.Its value has following meaning.
  1. positive – o1 is greater than o2

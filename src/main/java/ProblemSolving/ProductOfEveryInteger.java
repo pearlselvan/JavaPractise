@@ -7,6 +7,14 @@ package ProblemSolving;
 You have an array of integers, and for each index you want to find the product
  of every integer except the integer at that index.
  http://www.programcreek.com/2014/07/leetcode-product-of-array-except-self-java/
+
+The product of all the integers except the integer at each index can be broken down into:
+=============================================================================================
+
+1. the product of all the integers before each index
+2 . the product of all the integers after each index.
+
+
  */
 public class ProductOfEveryInteger {
 

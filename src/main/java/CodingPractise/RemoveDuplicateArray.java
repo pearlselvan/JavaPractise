@@ -2,6 +2,7 @@ package CodingPractise;
 
 /**
  * Created by muthuselvan on 3/12/17.
+ * http://www.programcreek.com/2013/01/leetcode-remove-duplicates-from-sorted-array-ii-java/
  */
 public class RemoveDuplicateArray {
 

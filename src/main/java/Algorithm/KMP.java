@@ -16,7 +16,8 @@ import java.lang.management.ThreadMXBean;
 // so that the pattern can be shifted by more than one.
 /*
 This algorithm is executed in two phases.
-1. Preprocessing Phase :
+1. Pre processing Phase :
+---------------------
 In this phase, KMP algorithm creates a temporary array
 which is prepared from the pattern.
 We call this temporary array as Partial Match Table (PMT),

@@ -7,6 +7,17 @@ import java.util.regex.Pattern;
 /**
  * Created by muthuselvan on 4/8/17.
  * http://www.java67.com/2015/10/java-program-to-find-repeated-words-and-count.html
+ *
+ *
+ * http://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/
+ *
+ * 1. Hashing
+ *
+ *
+ * 2 . use Trie and Min Heap
+ *
+ *
+ *
  */
 public class FindHighestRepeatedWord {
 
@@ -47,6 +58,10 @@ public class FindHighestRepeatedWord {
 
 
                     duplicateMap.forEach((k,v)->System.out.println("Item : " + k + " Count : " + v));
+
+                    // The below line will print max number of word in the file
+                    System.out.println(duplicateMap.entrySet().stream().max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey());
+
                 }
 
 

@@ -18,13 +18,6 @@ public class HashMapWithMultipleValues {
 
         firstEvent.add("Lunch");
         firstEvent.add("10");
-
-
-
-
-
-
-
         List<String> appleProduct = new ArrayList<>();
 
         appleProduct.add("MAC");
@@ -33,9 +26,6 @@ public class HashMapWithMultipleValues {
 
         products.put("APPLE",appleProduct);
         products.put("first",firstEvent);
-
-
-
 
         Set productSet = products.entrySet();
 

@@ -62,7 +62,8 @@ public class QueueDemo {
 
     //default initial capacity (11)
     //PriorityQueue is also not synchronized, so use counterpart : PriorityBlockingQueue
-    //One of the key thing to remember about PriorityQueue in Java is that it's Iterator doesn't guarantee any order, if you want to traverse in ordered fashion,
+    //One of the key thing to remember about PriorityQueue in Java is that it's Iterator doesn't guarantee any order,
+    // if you want to traverse in ordered fashion,
     // better use Arrays.sort(pq.toArray())
 
 
@@ -140,17 +141,14 @@ public class QueueDemo {
         itemQueue.add(iphone);
         itemQueue.add(iPad);
         itemQueue.add(mac);
-
         itemQueue.forEach(item -> System.out.println("Item : " +item.getItem()));
-
-
 
     }
 
     public static void queueOpearation() {
 
         String name = new Object(){}.getClass().getEnclosingMethod().getName();
-        System.out.println("Running " +name);
+        System.out.println("Method " +name);
 
         Queue<Integer> jiraIssue = new ArrayDeque<>();
         jiraIssue.offer(100);
@@ -166,33 +164,24 @@ public class QueueDemo {
 
 
 class Item implements Comparable<Item> {
-
     public Item(String item, Integer price) {
         this.item = item;
         this.price = price;
     }
-
     String item ;
     Integer price ;
-
     public String getItem() {
         return item;
     }
-
     public void setItem(String item) {
         this.item = item;
     }
-
     public Integer getPrice() {
         return price;
     }
-
     public void setPrice(Integer price) {
         this.price = price;
     }
-
-
-
 
     @Override
     public boolean equals(Object o) {

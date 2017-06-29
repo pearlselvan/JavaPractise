@@ -5,7 +5,8 @@ package CodingPractise;
  */
 public class FindMiddleIndex {
     public static void main(String[] args) throws Exception{
-        Integer[] myInput = {4,4,1,5,4};
+//        Integer[] myInput = {4,4,1,5,4};
+        Integer[] myInput = {5,2,1,1,4,4,1}; //o/p : 3
         System.out.println("Middle Index is : " +findMiddle(myInput));
     }
 

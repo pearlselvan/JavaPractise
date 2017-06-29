@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeClass;
  */
 public class AndroidTest {
 
+    AndroidTest androidTest = new AndroidTest();
+
 
     @BeforeClass
     public void setup() {
@@ -18,7 +20,9 @@ public class AndroidTest {
     @MobileTest(appName = "citrix" ,device = "10.3")
     public void testLogin() {
 //        MoblieTestSession moblieTestSession = new MoblieTestSession();
-        System.out.println("appname"    );
+        System.out.println("appname"  +androidTest.getClass().getAnnotations());
+
+
 
     }
 }

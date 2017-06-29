@@ -2,6 +2,16 @@ package DataStructure;
 
 /**
  * Created by muthuselvan on 4/1/17.
+ *
+ *
+ *  *
+ * What is Binary Search Tree ?
+ * A binary search tree (BST) is a node based binary tree data structure which has the following properties.
+ • The left subtree of a node contains only nodes with keys less than the node’s key.
+ • The right subtree of a node contains only nodes with keys greater than the node’s key.
+ • Both the left and right subtrees must also be binary search trees.
+ *
+ *
  * http://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/
  *
  * Input:  Linked List 1->2->3

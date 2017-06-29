@@ -3,13 +3,17 @@ package Algorithm.Sort;
 /**
  * Created by muthuselvan on 2/8/17.
  * https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm
+ * http://www.geeksforgeeks.org/merge-sort/
  * Watch the video before : https://www.youtube.com/watch?v=TzeBrDU-JaY
  */
 
 /*
 o(nlog n ) - worst case running time
 o(n) - space complexity (Required space depends upon
+Sorting In Place: No in a typical implementation
 number of elemets to be sorted )
+Algorithmic Paradigm: Divide and Conquer
+
  */
 public class MergerSort {
 
