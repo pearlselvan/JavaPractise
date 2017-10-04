@@ -3,6 +3,7 @@ package Collections;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Created by muthuselvan on 2/2/17.
@@ -19,6 +20,18 @@ public class QueueDemo {
         ArrayBlockingQueue();
         PriorityQueue();
         queueOpearation();
+
+
+
+        Queue myQ = new LinkedList();
+        Queue pQ = new PriorityQueue();
+        Queue mq = new ArrayDeque();
+        Queue apq = new ArrayBlockingQueue(1);
+        Queue lbq = new LinkedBlockingDeque();
+
+
+
+
     }
 
     public static void addQueue() {

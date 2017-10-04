@@ -22,7 +22,7 @@ public class StockProfit {
 //        System.out.println("PRofit "+getMaxProfit(stockPricesYesterday));
     }
 
-
+//O(n) time and O(1)O(1) space. We only loop through the array once.
     public static int getMaxProfitOptimizedreturnNegativeProfit(int[] stockPricesYesterday) {
 
         if (stockPricesYesterday.length < 2 ) {

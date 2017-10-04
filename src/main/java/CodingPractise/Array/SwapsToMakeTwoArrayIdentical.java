@@ -4,7 +4,16 @@ import java.util.HashMap;
 
 /**
  * Created by muthuselvan on 6/7/17.
- * http://www.geeksforgeeks.org/minimum-swaps-to-make-two-array-identical/
+
+ *
+ * Optimal :
+ * ========
+ *
+ * Time Complexity :-
+ If arrays are sorted : O(n + m)
+ If arrays aren’t sorted : O(nlog(n) + mlog(m))
+ *
+ * http://www.geeksforgeeks.org/find-a-pair-swapping-which-makes-sum-of-two-arrays-same/
  */
 public class SwapsToMakeTwoArrayIdentical {
 

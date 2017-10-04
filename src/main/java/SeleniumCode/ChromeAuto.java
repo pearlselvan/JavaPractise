@@ -16,63 +16,57 @@ public class ChromeAuto  {
 
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/muthuselvan/Downloads/chromedriver");
+//        System.setProperty("webdriver.firefox.marionette","/Users/muthuselvan/Downloads/geckodriver");
         // Initialize browser
         WebDriver driver = new ChromeDriver();
-//        driver.get("https://www.icloud.com/");
-        driver.navigate().to("https://www.icloud.com/");
-        Thread.sleep(100);
-//        driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
 
-//        driver.findElement(By.className("img")).click()]
+//        driver.manage().timeouts();
+//        driver.wait(100);
+//        WebDriver driver = new FirefoxDriver();
 
+        driver.get("https://secure2.store.apple.com/shop/sign_in?c=aHR0cHM6Ly93d3cuYXBwbGUuY29tL3wxYW9zZTQyMmM4Y2NkMTc4NWJhN2U2ZDI2NWFmYWU3NWI4YTJhZGIyYzAwZQ&r=SCDHYHP7CY4H9XK2H&s=aHR0cHM6Ly93d3cuYXBwbGUuY29tL3wxYW9zZTQyMmM4Y2NkMTc4NWJhN2U2ZDI2NWFmYWU3NWI4YTJhZGIyYzAwZQ");
+      //  Thread.sleep(100);
         try {
             System.out.println("Finding element");
-//            Thread.sleep(5000);
             System.out.println("Title" +driver.getTitle());
-
-
-//            Thread.sleep(5000);
             System.out.println("Wait plase ");
-
-//            driver.findElement(By.tagName("input")).findElement(By.id("remember-me")).click();
-
-
-//            driver.findElement(By.name("submit")).sendKeys(Keys.RETURN);
-//            driver.findElement(By.id("remember-me-label")).click();
-
-//            driver.findElement(By.ById.id("icloud-lite-notice-link")).click();
-//            driver.findElement(By.id("icloud-lite-notice-link")).click();
-//            driver.findElement(By.cssSelector("input#remember-me.form-choice.form-choice-checkbox")).click();
             System.out.println("Waiting for link");
 
-            //webdriver.executeScript("document.getElementById('elementID').setAttribute('value', 'new value for element')");
+//            Thread.sleep(5000);
+//            System.out.println("Page " +driver.getPageSource());
+
+            WebElement webElement = driver.findElement(By.name("login-appleId")) ;
+
+            webElement.sendKeys("pearl.selvan");
 
 
-            Thread.sleep(3000);
-
-            driver.manage().window().maximize();
-
-//            List element = driver.findElements(By.tagName("input"));
-//
-//           for (int i=0;i<element.size();i++) {
-//               System.out.println(element.get(i).toString());
-//           }
-
-            WebElement webElement = driver.findElement(By.tagName("input"));
-//            driver.findElement(By.id("pwd")).sendKeys("er");
-
-            webElement.findElement(By.id("pwd")).sendKeys("wr");
+            Alert alt = driver.switchTo().alert();
 
 
-//            driver.switchTo();
+
+//            driver.findElement(By.name("login-appleId")).sendKeys("pearl.selvan@gmail.com");
+
+//            driver.findElement(By.name("login-password")).sendKeys("pearl.selvan@gmail.com");
+
+//            driver.findElement(By.id("sign-in")).click();
 
 
-//            JavascriptExecutor js = (JavascriptExecutor) driver;
-//            js.executeScript("document.getElementById('appleId').setAttribute('value', 'pearl.selvan@gmail.com')");
+
+//            Thread.sleep(5000);
+//            WebElement webElement = driver.findElement(By.tagName("input"));
+//            System.out.println("WE" +webElement.getAttribute("id"));
+
+//            driver.findElement(By.xpath("input#pwd.si-password.si-text-field.form-textbox")).sendKeys("welvom");
+
+//            String Script = "javascript:document.getElementById('appleId').click();";
+
+//            ((JavascriptExecutor) driver).executeScript(Script);
+//            webElement.findElement(By.id("appleId")).sendKeys("wr");
+            Thread.sleep(10000);
+
+
 
         } catch (NoSuchElementException e) {
-
-
     }
         ///html/body/div/apple-auth/div/div[1]/div/sign-in/div/div[1]/div[5]/input
         driver.close();

@@ -1,6 +1,7 @@
 package CodingPractise;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -8,6 +9,22 @@ import java.util.TreeMap;
 /**
  * Created by muthuselvan on 6/1/17.
  * http://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/
+ *
+ *
+ * Using shell utility :
+ * --------------------
+ * https://leetcode.com/problems/word-frequency/discuss/
+ *
+ * http://codingbat.com/doc/java-map-wordcount.html:
+ *
+ Create a Map<String, Integer>
+ Loop through all the strings
+ Use each string as a key into the map
+ The Integer value for each key is the number of times that string has been seen
+ 2 cases to think about:
+ -The first time we see a string (it is not yet in the map)
+ -Later times we see a string (it is already in the map)
+ *
  */
 public class WordCount_WordFrequency {
 
@@ -15,10 +32,6 @@ public class WordCount_WordFrequency {
         System.out.println();
 
         readFile("/Users/muthuselvan/reader.txt");
-
-
-
-
 
     }
 
@@ -43,7 +56,8 @@ public class WordCount_WordFrequency {
         Scanner input = new Scanner(new File(file));
 
         // count occurrences
-        Map<String, Integer> wordCounts = new TreeMap<String, Integer>();
+//        Map<String, Integer> wordCounts = new TreeMap<String, Integer>();
+        Map<String, Integer> wordCounts = new HashMap<>();
         while (input.hasNext()) {
             String next = input.next().toLowerCase();
             if (!wordCounts.containsKey(next)) {

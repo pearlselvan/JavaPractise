@@ -2,6 +2,7 @@ package ProblemSolving;
 
 /**
  * Created by muthuselvan on 2/24/17.
+ * https://www.interviewcake.com/question/java/product-of-other-numbers
  */
 /*
 You have an array of integers, and for each index you want to find the product
@@ -20,7 +21,10 @@ public class ProductOfEveryInteger {
 
     //http://www.programcreek.com/2014/07/leetcode-product-of-array-except-self-java/
     public static void main(String[] args) {
-        int[] array = {1,2,3};
+//        int[] array = {1,2,3};
+//        int[] array = {1,0,3}; //with zero
+        int[] array = {2,4,10};
+        //int[] array = {1,-1,3}; //with negative values
 
 //        for (int i=0;i<productExceptSelf(array).length;i++) {
 //            System.out.print("{"+productExceptSelf(array)[i]+"}");
@@ -31,13 +35,26 @@ public class ProductOfEveryInteger {
         }
 
         for (int i=0;i<productExceptSelf(array).length;i++) {
-            System.out.print("<"+getProductsOfAllIntsExceptAtIndexBest(array)[i]+">");
+            System.out.print("< best o(n) : "+getProductsOfAllIntsExceptAtIndexBest(array)[i]+">");
         }
 
 
 
     }
 
+
+
+    /*
+
+      input :    [ 2,4,10]
+      Step 1 : prodcut before each index : [ 1,2 8]  // How 1 come at index 0 because assume that 0 in index 0
+
+      Step 2 : product adter each index : [ 40 ,10,1] //
+
+      finally : multiple from step 1 and step 2 : [ 40 ,20,8 ]
+
+
+     */
 
 
     public static int[] getProductsOfAllIntsExceptAtIndexBest(int[] intArray) {
@@ -51,8 +68,10 @@ public class ProductOfEveryInteger {
         int productSoFar = 1;
         for (int i = 0; i < intArray.length; i++) {
             productsOfAllIntsExceptAtIndex[i] = productSoFar;
+            System.out.println("first index : " +   productsOfAllIntsExceptAtIndex[i]);
             productSoFar *= intArray[i];
         }
+        System.out.println("First : " +productSoFar);
 
         // for each integer, we find the product of all the integers
         // after it. since each index in products already has the

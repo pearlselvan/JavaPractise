@@ -52,12 +52,9 @@ package Collections;
  Remember, insertion order is not affected if a key is re-inserted into LinkedHashMap,
  but access order is affected if LinkedHashMap is created to maintain access-order.
 
- TreeMap is internally based upon Red-Black Tree and NavigableMap, introduced in JDK 6. The Red-Black tree is used to maintain the sorting order imposed by Comparable or Comparator, provided at the time of creation.  TreeMap provides guaranteed log(n) time cost for the get, put, containsKey and remove operations. Algorithms are adaptations of those in Cormen, Leiserson, and Rivest's Introduction to Algorithms.
-
-
-
-
-
+ TreeMap is internally based upon Red-Black Tree and NavigableMap, introduced in JDK 6.
+ The Red-Black tree is used to maintain the sorting order imposed by Comparable or Comparator, provided at the time of creation.
+ TreeMap provides guaranteed log(n) time cost for the get, put, containsKey and remove operations. Algorithms are adaptations of those in Cormen, Leiserson, and Rivest's Introduction to Algorithms.
 
 
 

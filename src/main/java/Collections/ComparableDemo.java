@@ -4,6 +4,7 @@ import java.util.*;
 
 /*
 https://www.javacodegeeks.com/2013/03/difference-between-comparator-and-comparable-in-java.html
+http://www.geeksforgeeks.org/comparable-vs-comparator-in-java/
 1.Comparable is implemented by a class in order to be
 able to comparing object of itself with some other objects.
 2.The method required for implementation is compareTo()
@@ -15,6 +16,13 @@ Comparator vs Comparable
 
 Comparator :
 ------------
+
+ Why ?
+ -----
+ Comparing object more then one value thats suppose we want sort movies by their rating and names also. When we make a
+ collection element comparable(by having it implement Comparable), we get only one chance to implement the compareTo()
+ method
+
 1. Sorting logic:
 
 Sorting logic must be in same class whose objects are being sorted.
@@ -36,8 +44,13 @@ Here objects will be sorted on the basis of Compare method in Comparator
 Comparable :
 ------------
 
+Why ?
+ =====
+A comparable object is capable of comparing itself with another object.
+
 1. Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects to be sorted. E.g. Sorting using id,name etc.
-Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement comparable to collection of country object by id	Class whose objects to be sorted do not need to implement this interface.Some other class can implement this interface. E.g.-CountrySortByIdComparator class can implement Comparator interface to sort collection of country object by id
+Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement comparable to collection of country object by id
+	Class whose objects to be sorted do not need to implement this interface.Some other class can implement this interface. E.g.-CountrySortByIdComparator class can implement Comparator interface to sort collection of country object by id
 
 2.This method compares o1 and o2 objects. and returns a integer.Its value has following meaning.
 1. positive – o1 is greater than o2
@@ -52,6 +65,19 @@ Here objects will be sorted on the basis of Compare method in Comparator
 
 Java.util.Comparator
 Java code:
+
+
+
+NOTE :
+======
+1. Comparable is meant for objects with natural ordering which means the object itself must know how it is to be ordered.
+For example Roll Numbers of students. Whereas, Comparator interface sorting is done through a separate class.
+2. Logically, Comparable interface compares “this” reference with the object specified and Comparator in
+Java compares two different class objects provided.
+3. If any class implements Comparable interface in Java then collection of that object either List or Array can be sorted
+automatically by using Collections.sort() or Arrays.sort() method and objects will be sorted based on there natural
+order defined by CompareTo method.
+
 
  */
 public class ComparableDemo {
@@ -71,6 +97,7 @@ public class ComparableDemo {
         employeeComparableArrayList.add(emp1);
         employeeComparableArrayList.add(emp2);
         employeeComparableArrayList.add(emp3);
+        System.out.println("Original " +employeeComparableArrayList);
         Collections.sort(employeeComparableArrayList, new EmployeeComparatorAscending());
 
         employeeComparableArrayList.forEach( (emp) -> System.out.println("Ascending by emp name: " +emp));
@@ -84,6 +111,16 @@ public class ComparableDemo {
 
     }
 }
+
+
+class EmpComparator implements Comparator {
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 1;
+    }
+}
+
 
 class EmployeeComparable implements
         Comparable<EmployeeComparable>

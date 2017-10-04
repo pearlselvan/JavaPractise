@@ -14,25 +14,33 @@ package CodingPractise.Array;
  * 3 is an equilibrium index, because:
  A[0] + A[1] + A[2] = A[4] + A[5] + A[6]
 
- 6 is also an equilibrium index, because sum of zero elements is zero, i.e., A[0] + A[1] + A[2] + A[3] + A[4] + A[5]=0
+ 6 is also an equilibrium index, because sum of zero
+ elements is zero, i.e., A[0] + A[1] + A[2] + A[3] + A[4] + A[5]=0
 
- 7 is not an equilibrium index, because it is not a valid index of array A.
+ 7 is not an equilibrium index, because it is not a
+ valid index of array A.
 
  Question :
  ==========
- Write a function int equilibrium(int[] arr, int n); that given a sequence arr[] of size n,
- returns an equilibrium index (if any) or -1 if no equilibrium indexes exist.
+ Write a function int equilibrium(int[] arr, int n); that given a
+ sequence arr[] of size n,
+ returns an equilibrium index (if any) or -1
+ if no equilibrium indexes exist.
 
 
  Method 1 (Simple but inefficient)
  ================================
- Use two loops. Outer loop iterates through all the element and inner loop finds out whether the
- current index picked by the outer loop is equilibrium index or not. Time complexity of this solution is O(n^2).
+ Use two loops. Outer loop iterates through all the element
+ and inner loop finds out whether the
+ current index picked by the outer loop is equilibrium index or not.
+
+ Time complexity of this solution is O(n^2).
 
  Method 2 (Tricky and Efficient)
  ================================
 
- The idea is to get total sum of array first. Then Iterate through the array and keep updating
+ The idea is to get total sum of array first.
+ Then Iterate through the array and keep updating
  the left sum which is initialized as zero. In the loop, we can get right sum by subtracting
  the elements one by one.
 

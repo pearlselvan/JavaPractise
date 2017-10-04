@@ -6,13 +6,23 @@ import java.util.Stack;
  * Created by muthuselvan on 5/10/17.
  * http://www.geeksforgeeks.org/expression-evaluation/
  * https://www.youtube.com/watch?v=MeRb_1bddWg
+ * https://www.tutorialspoint.com/data_structures_algorithms/expression_parsing.htm
+ *
+ *
+ * Sr. No.	Infix Notation	Prefix Notation	Postfix Notation
+    1	        a + b	        + a b	        a b +
+    2	     (a + b) ∗ c	∗ + a b c	      a b + c ∗
+    3	     a ∗ (b + c)	∗ a + b c	      a b c + ∗
+    4	  a / b + c / d	  + / a b / c d	    a b / c d / +
+    5	(a + b) ∗ (c + d)	∗ + a b + c d	a b + c d + ∗
+    6	((a + b) ∗ c) - d	- ∗ + a b c d	a b + c ∗ d -
  *
  * using postfix
  * using prefix
  *
  * what in prefix :
  * 1+2*4 will become 12+4*
- * after prefix how to evaluvate ?
+ * after posfix how to evaluvate ?
  * for the given prefix : 12+4*
  * scan the item from left to right till operator (+,-, ,,)  add into the stack
  *
@@ -79,9 +89,9 @@ public class ExpressionEvaluation {
     public static void main(String[] args) {
 
         System.out.println(EvaluateString.evaluate("10 + 2 * 6"));
-        System.out.println(EvaluateString.evaluate("100 * 2 + 12"));
-        System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 )"));
-        System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 ) / 14"));
+//        System.out.println(EvaluateString.evaluate("100 * 2 + 12"));
+//        System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 )"));
+//        System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 ) / 14"));
 
 //        usingPrefixEvaluvateExpression("e");
 
@@ -167,7 +177,9 @@ public class ExpressionEvaluation {
 class EvaluateString {
     public static int evaluate(String expression)
     {
+        System.out.println("Expression : " +expression);
         char[] tokens = expression.toCharArray();
+
 
         // Stack for numbers: 'values'
         Stack<Integer> values = new Stack<Integer>();
@@ -188,7 +200,9 @@ class EvaluateString {
                 // There may be more than one digits in number
                 while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
                     sbuf.append(tokens[i++]);
+                System.out.println("String Buffer : " +sbuf);
                 values.push(Integer.parseInt(sbuf.toString()));
+                System.out.println("Value Stack :" +values);
             }
 
 
@@ -217,6 +231,7 @@ class EvaluateString {
 
                 // Push current token to 'ops'.
                 ops.push(tokens[i]);
+                System.out.println("Opearator : " +ops);
             }
         }
 

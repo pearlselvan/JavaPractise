@@ -1,5 +1,7 @@
 package CodingPractise.Array;
 
+import java.util.Arrays;
+
 /**
  * Created by muthuselvan on 2/9/17.
  *
@@ -35,10 +37,11 @@ public class RotateKTimes {
     }
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6};
-//        rotate(arr); //This is the NOT optimized approach.
+       // rotate(arr); //This is the NOT optimized approach.
 
 //         optimized approach.
-        reverseOptimized(arr,2);
+        reverseOptimized(arr,4);
+        System.out.println("Rotated >>>" + Arrays.toString(arr));
     }
 
     /*
@@ -72,11 +75,12 @@ public class RotateKTimes {
 
     public static int[] reverseOptimized(int[] myArray,int rotateTimes) {
         int end = myArray.length ;
-        if (rotateTimes > end)
-        rotateTimes = rotateTimes % end ;
-        myArray=reverse(myArray,0,end-1);
-        myArray=reverse(myArray,0,rotateTimes-1);
-        myArray=reverse(myArray,rotateTimes,end-1);
+        if (rotateTimes < end) {
+            System.out.println("Rotate time : " + rotateTimes);
+            myArray = reverse(myArray, 0, end - 1);
+            myArray = reverse(myArray, 0, rotateTimes - 1);
+            myArray = reverse(myArray, rotateTimes, end - 1);
+        }
         return myArray;
     }
 
@@ -91,7 +95,7 @@ public class RotateKTimes {
 
         }
 
-        printArrays(myArray);
+//        printArrays(myArray);
 
         return myArray;
 

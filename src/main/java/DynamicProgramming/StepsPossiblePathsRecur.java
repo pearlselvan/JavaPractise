@@ -2,6 +2,11 @@ package DynamicProgramming;
 
 /**
  * Created by muthuselvan on 3/24/17.
+ *
+ * Number of stairs : 3
+
+ Number of ways = 4 ( {1,1,1}, {1,2}, {2,1}, {3} )
+ *
  * http://algorithms.tutorialhorizon.com/dynamic-programming-stairs-climbing-puzzle/
 
 
@@ -11,32 +16,25 @@ package DynamicProgramming;
 public class StepsPossiblePathsRecur {
 
     public static void main(String[] args) {
-        System.out.println(possibleWays(3));
+        System.out.println(possibleWaysRecursion(3));
         int n = 3 ;
         int[] dyn = new int[n + 1];
-        System.out.println(poosibleWaysDyna(3,dyn));
-
-        int a = 8 ;
-        int b = 7 ;
-        int c = a < b ? b : a ;
-        int d = a < b ? a : b ;
-        System.out.println(c);
-        System.out.println(d);
-
-
-
-
+        System.out.println("possbile way : " +poosibleWaysDyna(3,dyn));
+//        int a = 8 ;
+//        int b = 7 ;
+//        int c = a < b ? b : a ;
+//        int d = a < b ? a : b ;
+//        System.out.println(c);
+//        System.out.println(d);
 
     }
 
-    public static int possibleWays(int n) {
+    public static int possibleWaysRecursion(int n) {
         if (n < 1) {
-
             return 0;
         }
-
-        return 1 + possibleWays(n - 1) + possibleWays(n - 2)
-                + possibleWays(n - 3);
+        return 1 + possibleWaysRecursion(n - 1) + possibleWaysRecursion(n - 2)
+                + possibleWaysRecursion(n - 3);
     }
 
     public static int poosibleWaysDyna(int n, int[] dyn) {

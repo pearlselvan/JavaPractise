@@ -5,6 +5,12 @@ import static java.util.Objects.hash;
 /**
  * Created by muthuselvan on 2/7/17.
  * https://examples.javacodegeeks.com/core-java/palindrome-program-in-java/
+ *
+ * What Palindrome ?
+ * A String is considered a palindrome if it can be similarly read both
+ * from left to right and from right to left. For example "abbcbba", “12321”, “69796”
+ * are all palindromes.
+ *
  */
 public class CheckPalindrome {
 
@@ -32,7 +38,8 @@ public class CheckPalindrome {
     It’s not hard to see that in the above example, reversing a String requires double the memory
      along with some coping, and of course the additional computations of the equals method.
 
-     Non of the above are particularly costly, but you could think of a more efficient and faster solution.
+     Non of the above are particularly costly, but you could think of a more efficient
+     and faster solution.
 Our second approach is based on the intuition that a String is a palindrome if the first half of the String is “mirrored” by the other half. This means that the first half of the String read from left to right, is the same as the second half read from right to left.
 If you imagine the String as a char array, then it’s straightforward to implement an algorithm that takes advantage of that idea:
 Have a pointer pointing to the first element of the array, and a second pointer pointing at the last element of the array.

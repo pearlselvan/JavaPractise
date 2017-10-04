@@ -21,7 +21,7 @@ This element is called the "pivot element".
 in one array and all elements which are larger are placed
 in another array.
 
-3. Sort both arrays by recursively applying Quicksort to them.
+3. Sort both arrays by recursivel   y applying Quicksort to them.
 
 4. Combine the arrays.
 
@@ -63,6 +63,8 @@ public class QuickSort {
         // Get the pivot element from the middle of the list
         int pivot = numbers[low + (high-low)/2];
         System.out.println("Pivot Index : " +pivot);
+        System.out.println("Initial i " +i);
+        System.out.println("Initial j " +j);
 
 
         // Divide into two lists
@@ -83,6 +85,10 @@ public class QuickSort {
             // which is smaller then the pivot element then we exchange the
             // values.
             // As we are done we can increase i and j
+
+            System.out.println("After pivot check i " +i);
+            System.out.println("After pivot checj j " +j);
+
             if (i <= j) {
                 exchange(i, j);
                 i++;

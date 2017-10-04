@@ -1,5 +1,7 @@
 package CodingPractise.String;
 
+import java.util.Arrays;
+
 /**
  * Created by muthuselvan on 6/21/17.
  * http://www.programcreek.com/2014/03/leetcode-compare-version-numbers-java/
@@ -21,6 +23,8 @@ public class CompareVersionNumbers {
     public static int compareVersion(String version1, String version2) {
         String[] arr1 = version1.split("\\.");
         String[] arr2 = version2.split("\\.");
+        System.out.println("After Split ARRAY 1 : " + Arrays.toString(arr1));
+        System.out.println("After Split ARRAY 2 : " +Arrays.toString(arr2));
 
         int i=0;
         while(i<arr1.length || i<arr2.length){

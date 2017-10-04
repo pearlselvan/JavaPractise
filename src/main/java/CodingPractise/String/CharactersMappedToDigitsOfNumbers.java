@@ -1,6 +1,7 @@
 package CodingPractise.String;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -52,7 +53,8 @@ public class CharactersMappedToDigitsOfNumbers {
 
     public static void main(String[] args) {
 
-        letterCombinations("123");
+ //Input:Digit string "23", Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+        System.out.println("OUTPUT  >> " +letterCombinations("23"));
 
     }
 
@@ -79,23 +81,52 @@ public class CharactersMappedToDigitsOfNumbers {
         return result;
     }
 
+
+    /*
+    Logic :
+ ========
+ The idea is for each digit in the input number,
+ we consider strings formed by previous digit and append characters mapped
+ to current digit to them. If this is not the first occurrence of the digit,
+ we append same character as used in its first occurrence.
+
+     */
+
     public static void getString(String digits, ArrayList<Character> temp, ArrayList<String> result,  HashMap<Integer, String> map){
-        if(digits.length() == 0){
+        System.out.println("Digit will sub string : " +digits);
+        System.out.println("TEMP array list : " +temp+ " - T Size : " +temp.size());
+
+        if(digits.length() == 0){ // BASE CONDION + ADDING temp Array list values
+            System.out.println("BASE CONDITON : Digit lenght is zero");
             char[] arr = new char[temp.size()];
+
+
             for(int i=0; i<temp.size(); i++){
                 arr[i] = temp.get(i);
             }
+
+            System.out.println("arr[i] : " + Arrays.toString(arr));
+
             result.add(String.valueOf(arr));
+            System.out.println("result array list if digit length is not zero : " +result);
             return;
         }
-
+        // STATEMENT WILL COME HERE FIRST :
         Integer curr = Integer.valueOf(digits.substring(0,1));
+        System.out.println("Sub string after curr : " +curr);
+
         String letters = map.get(curr);
+        System.out.println("Letter get from map : " +letters);
         for(int i=0; i<letters.length(); i++){
             temp.add(letters.charAt(i));
-            getString(digits.substring(1), temp, result, map);
+            // Each letter get the string and add into the map
+            System.out.println(" TEMP array list became : " +temp);
+            getString(digits.substring(1), temp, result, map); // ----> RECURSION
+            System.out.println("After get string MAP : " +map);
             temp.remove(temp.size()-1);
         }
     }
 
 }
+
+

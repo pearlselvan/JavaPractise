@@ -4,6 +4,9 @@ package CodingPractise.String;
  * Created by muthuselvan on 4/30/17.
  * http://www.geeksforgeeks.org/longest-common-prefix-set-1-word-by-word-matching/
  *
+ *
+ * DIFFERENT APPROACH : https://leetcode.com/articles/longest-common-prefix/ better : Horizontal scanning
+ *
  * java impl : https://leetcode.com/articles/longest-common-prefix/#approach-4-binary-search
  *
  * Problem :
@@ -35,6 +38,7 @@ public class LongestCommonPrefix {
         String[] data = {"apple", "ape", "april"};
         System.out.println(commonPrefix(data,data.length-1));
         System.out.println("-"+commonPrefixUsingMinStringlength(data));
+        System.out.println("LEET CODE USING SUB STRING  -"+longestCommonPrefix_leetcode(data));
     }
 /*
 Time Complexity : Since we are iterating through all the strings and for each string
@@ -147,6 +151,22 @@ the strings, so we can say that the time complexity is O(N M) where,
 
      }
 
+     //https://leetcode.com/problems/longest-common-prefix/discuss/
+
+    public static String longestCommonPrefix_leetcode(String[] strs) {
+        if(strs == null || strs.length == 0)    return "";
+        String pre = strs[0];
+        int i = 1;
+        while(i < strs.length){
+            while(strs[i].indexOf(pre) != 0) {
+                System.out.println("strs [i] " +strs[i]);
+                System.out.println("strs [i] inex of pre " +strs[i].indexOf(pre));
+                pre = pre.substring(0, pre.length() - 1);
+            }
+            i++;
+        }
+        return pre;
+    }
 
 //http://mantascode.com/java-how-to-compare-two-arrays/
     public static String compare(String first,String second) {

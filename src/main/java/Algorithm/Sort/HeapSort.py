@@ -19,7 +19,6 @@ Technical Details:
 
 
 
-
 '''
 
 def sortme(mylist):

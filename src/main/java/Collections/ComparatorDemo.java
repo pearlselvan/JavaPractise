@@ -6,12 +6,18 @@ import java.util.Comparator;
 
 /**
  * https://www.javacodegeeks.com/2013/03/difference-between-comparator-and-comparable-in-java.html
+ * http://www.geeksforgeeks.org/comparable-vs-comparator-in-java/
  * Created by muthuselvan on 2/2/17.
  * Comparator vs Comparable
  =========================
 
  Comparable :
  ------------
+
+ Why ?
+ =====
+ A comparable object is capable of comparing itself with another object.
+
  1. Sorting logic:
 
  Sorting logic must be in same class whose objects are being sorted.
@@ -33,6 +39,14 @@ import java.util.Comparator;
  Comparator :
  ------------
 
+ Why ?
+ -----
+ Comparing object more then one value thats suppose we want sort movies by their rating and names also. When we make a
+ collection element comparable(by having it implement Comparable), we get only one chance to implement the compareTo()
+ method
+
+
+
  1. Sorting logic is in separate class. Hence we can write different sorting based on different attributes of objects
  to be sorted. E.g. Sorting using id,name etc.
  Implementation	Class whose objects to be sorted must implement this interface.e.g Country class needs to implement
@@ -53,8 +67,20 @@ import java.util.Comparator;
  Java.util.Comparator
  Java code:
 
+ NOTE :
+ ======
+ 1. Comparable is meant for objects with natural ordering which means the object itself must know how it is to be ordered.
+ For example Roll Numbers of students. Whereas, Comparator interface sorting is done through a separate class.
+ 2. Logically, Comparable interface compares “this” reference with the object specified and Comparator in
+ Java compares two different class objects provided.
+ 3. If any class implements Comparable interface in Java then collection of that object either List or Array can be sorted
+ automatically by using Collections.sort() or Arrays.sort() method and objects will be sorted based on there natural
+ order defined by CompareTo method.
+
 
  */
+
+
 
 // Comparator for customized sorting comparting two objects
 // This interface java.util.Comparator

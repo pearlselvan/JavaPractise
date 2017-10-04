@@ -62,10 +62,7 @@ abcabdabc : 3 [abc] --- THIS IS LENGTH longest THATS length(abb)
 */
 
 public class KMP {
-
-
     public static void main(String[] args) {
-
             ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
             long[] threadIds = threadBean.findMonitorDeadlockedThreads();
             int deadlockedThreads = threadIds != null? threadIds.length : 0;

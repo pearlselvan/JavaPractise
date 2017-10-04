@@ -2,6 +2,11 @@ package CodingPractise.Array;
 
 /**
  * Created by muthuselvan on 6/4/17.
+ *
+ * REFER ALSO : RotateKTimes.java
+ * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+ *
+ *
  * Write a function rotate(ar[], d, n) that rotates arr[] of size n by d elements.
  *
  * Example :
@@ -25,7 +30,7 @@ package CodingPractise.Array;
  Big(0) :
  ========
     Time complexity O(n)
-    Auxiliary Space: O(d)
+    Auxiliary Space: O(d) ---temp array
 
  METHOD 2 (Rotate one by one)
  =============================
@@ -62,6 +67,34 @@ package CodingPractise.Array;
  Here is an example for n =12 and d = 3. GCD is 3 and
 
  Refer for diagram : http://www.geeksforgeeks.org/array-rotation/
+
+
+ REFER ALSO : RotateKTimes.java
+
+
+ EASY TO UNDERSTAND :
+ =====================
+
+ public void rotate(int[] nums, int k) {
+ k %= nums.length;
+ reverse(nums, 0, nums.length - 1);
+ reverse(nums, 0, k - 1);
+ reverse(nums, k, nums.length - 1);
+ }
+
+ public void reverse(int[] nums, int start, int end) {
+ while (start < end) {
+ int temp = nums[start];
+ nums[start] = nums[end];
+ nums[end] = temp;
+ start++;
+ end--;
+ }
+ }
+
+
+
+
  */
 
 //The below code in method 2 :
@@ -69,9 +102,8 @@ public class ArrayRotation {
     // Driver program to test above functions
     public static void main(String[] args) {
         int arr[] = {1, 2, 3, 4, 5, 6, 7};
-        leftRotate(arr, 2, 7);
+        leftRotate(arr, 2, 7); // move 2 times , for size : 7
         printArray(arr, 7);
-
     }
     /*Function to left rotate arr[] of size n by d*/
     static void leftRotate(int arr[], int d, int n)
@@ -80,14 +112,14 @@ public class ArrayRotation {
         for (i = 0; i < d; i++)
             leftRotatebyOne(arr, n);
     }
-    static void leftRotatebyOne(int arr[], int n)
-    {
-        int i, temp;
-        temp = arr[0];
-        for (i = 0; i < n - 1; i++)
-            arr[i] = arr[i + 1];
-        arr[i] = temp;
-    }
+        static void leftRotatebyOne(int arr[], int n)
+        {
+            int i, temp;
+            temp = arr[0];
+            for (i = 0; i < n - 1; i++)
+                arr[i] = arr[i + 1];
+            arr[i] = temp;
+        }
     /* utility function to print an array */
     static void printArray(int arr[], int size)
     {

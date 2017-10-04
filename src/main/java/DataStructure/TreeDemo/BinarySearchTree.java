@@ -43,7 +43,11 @@ public class BinarySearchTree {
         binarySearchTree.insert(2);
         System.out.println(binarySearchTree.find(100));
         System.out.println(binarySearchTree.find(1000));
-        binarySearchTree.display(binarySearchTree.root);
+        System.out.println("Display in IN - order ");
+        binarySearchTree.displayInorder(binarySearchTree.root);
+
+        System.out.println("Display in Pre - order ");
+        binarySearchTree.displayPreorder(binarySearchTree.root);
 
     }
 
@@ -66,11 +70,20 @@ public class BinarySearchTree {
 
     //use recursion
     //To know about how we are dis­play­ing nodes in increas­ing order
-    public void display(NodeBST root) {
+    public void displayInorder(NodeBST root) {
+
         if (root != null ) {
-            display(root.left);
+            displayInorder(root.left);
             System.out.print(" => " +root.data);
-            display(root.right);
+            displayInorder(root.right);
+        }
+    }
+
+    public void displayPreorder(NodeBST root) {
+        if (root != null ) {
+            System.out.print(" => " +root.data);
+            displayPreorder(root.left);
+            displayPreorder(root.right);
         }
     }
 

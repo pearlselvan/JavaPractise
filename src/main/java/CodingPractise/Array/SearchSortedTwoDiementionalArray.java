@@ -2,7 +2,26 @@ package CodingPractise.Array;
 
 /**
  * Created by muthuselvan on 4/22/17.
+ *
+ * simple solution : o(n Sqr) :
+ * ----------------------
+
  * http://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+ *
+ Better solution
+ ---------------
+ is to use Divide and Conquer to find the element.
+ Time complexity of this solution is O(n1.58)
+
+
+ Below is an efficient solution that works in O(n) time.
+ =======================================================
+ 1) Start with top right element
+ 2) Loop: compare this element e with x
+ ….i) if they are equal then return its position
+ …ii) e < x then move it to down (if out of bound of matrix then break return false) ..iii) e > x then move it to left (if out of bound of matrix then break return false)
+ 3) repeat the i), ii) and iii) till you find element or returned false
+
  *
  */
 public class SearchSortedTwoDiementionalArray {
@@ -16,7 +35,7 @@ public class SearchSortedTwoDiementionalArray {
                 {32, 33, 39, 50},
         };
 
-        search(mat,mat.length,150);
+        search(mat,mat.length,-150);
 
 
     }

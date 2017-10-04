@@ -32,4 +32,5 @@ package CodingPractise.Array;
  */
 public class LongestSpanWithSameSumTwoBinaryArrays {
 
+
 }

@@ -18,6 +18,17 @@ import java.util.Queue;
  *  [ 1 ] ---->[ 2 ] ----> [ 0 ]  ----> [ 3 ]
  *  [ 2 ] ---->[ 0 ] ----> [ 3 ]
  *  [ 3 ] ----> [ 3 ]
+ *
+ *
+ *  BFS -> LEVEL BY LEFL - > FIFO -> QUEUE - REQUIRED LARGE MEMORY TO STORE POINTER
+ *  DFS -> NO MEMORY REQUIRED
+ *
+ *  WHEN TO USE  : http://www.programmerinterview.com/index.php/data-structures/dfs-vs-bfs/
+ *
+ *  for the given family of tree if we want to search person who is dead then BFS because he will be in top
+ *  if we want to search alive person then DFS because he will be in bottom of the tree
+ *
+ *
  */
 public class PathbetweenTwoVerticesInDirectedGraph {
 
@@ -84,6 +95,7 @@ class Graph {
         Iterator<Integer> i;
         while (queue.size() != 0) {
             // Dequeue a vertex from queue and print it
+            // return the head of this queue
             s = queue.poll();
             System.out.println("Polling Q " +s);
             int n;

@@ -3,6 +3,7 @@ package CodingPractise.String;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * Created by muthuselvan on 5/31/17.
@@ -10,10 +11,14 @@ import java.io.InputStreamReader;
  *
  *  Sorting and counting way
        http://techieme.in/make-anagrams-from-two-strings/
+  BIG-O :
 
+ //We can also employ Count Sort which can get the characters sorted in O(N)
+ // time in the best case, using some auxiliary space. More about count sort later.
 
 
  */
+
 public class AnagramRemoveNumberofCharacter {
 
     public static int NUMBER_LETTER = 26 ;
@@ -26,19 +31,19 @@ public class AnagramRemoveNumberofCharacter {
         System.out.println(offset);
 
 
-        String data1 = "come";
-        String data2 = "welcome";
-        countingway(data1,data2);
+//        String data1 = "come";
+//        String data2 = "welcome";
+//        countingway(data1,data2);
 
 
-        System.out.println("No of character removed : "+numberofCharacterRemovedForAnagram("muthu","muthusr"));
+        System.out.println("No of character removed using countring sort: "+countingway("muthu","muthusr"));
 
 
 
 
     }
 
-    public static void countingway(String d1,String d2) throws IOException {
+    public static int countingway(String d1,String d2) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        String line = br.readLine();
         String aString = d1;
@@ -53,18 +58,23 @@ public class AnagramRemoveNumberofCharacter {
         for (int i = 0; i < charArray.length; i++) {
             counts[charArray[i] - a]++;
         }
+        System.out.println("Char Counts for first array : " + Arrays.toString(counts));
+
 
         charArray = bString.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
             counts[charArray[i] - a]--;
         }
 
+        System.out.println("Char Counts for second array : " + Arrays.toString(counts));
+
         int sum = 0;
         for(int i = 0 ; i < counts.length ;i++){
-            sum+= Math.abs(counts[i]);
+            sum+= Math.abs(counts[i]); // the count array may contains minus values so abs will make positive
         }
 
         System.out.println("S - " +sum);
+        return sum;
     }
 
 

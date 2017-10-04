@@ -7,10 +7,8 @@ package DataStructure.Stack;
  *
  * Question :
  * ===========
- *
  * Find maximum sum possible equal sum of three stacks
  * ----------------------------------------------------
- *
  * Given three stack of the positive numbers, the task is to find the possible
  * equal maximum sum of the stacks with removal of top elements allowed.
  * Stacks are represented as array, and the first index of the array

@@ -69,7 +69,7 @@ class minStack {
 
     public int pop() {
         if (currentStack.peek() <=minStack.peek()) {
-            minStack.pop();
+            minStack.pop(); //Removeing from min stack , why ?
         }
         return currentStack.pop();
     }

@@ -6,12 +6,14 @@ package Algorithm.Sort;
  * Created by muthuselvan on 2/6/17.
  * //http://www.sanfoundry.com/java-program-implement-heap-sort/
  * http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L13-HeapSortEx.htm
- */
 
-/*
-Heapsort is a comparison-based sorting algorithm to create a sorted array (or list),
+
+
+Heapsort is a comparison-based sorting algorithm to create a sorted array
+ (or list),
 and is part of the selection sort family.
-Although somewhat slower in practice on most machines than a well-implemented quicksort,
+Although somewhat slower in practice on most machines
+ than a well-implemented quicksort,
 it has the advantage of a more favorable worst-case O(n log n) runtime.
 Heapsort is an in-place algorithm, but it is not a stable sort.
 Big-O
@@ -19,9 +21,9 @@ Big-O
 Worst case performance : O(n log n)
 Best case performance : O(n log n)
 Average case performance : O(n log n)
-*/
 
-/*
+
+
 Implementation :
 ------------------
 Heap Sort Algorithm for sorting in increasing order:
@@ -40,9 +42,10 @@ if its children nodes are heapified.
 So the heapification must be performed in the bottom up order.
 
 
- */
+HEPFY APPLYING ON NODE AND EACH ROOT
+ NODE MUST BE GREATER THEN OR EQUAL ITS CHILDREN
 
-/*
+
 
 Input data: 4, 10, 3, 5, 1
 ---------------------------
@@ -78,6 +81,9 @@ The heapify procedure calls itself recursively
 to build heap in top down manner.
 
 
+
+
+
  */
 
 
@@ -91,7 +97,7 @@ public class HeapSort {
 
 		HeapSort ob = new HeapSort();
 		printArray(arr);
-		ob.sort(arr);
+		ob.heapSort(arr);
 
 		System.out.println("Sorted array is");
 		printArray(arr);
@@ -102,61 +108,55 @@ public class HeapSort {
 	// an index in arr[]. n is size of heap
 
 	// This will make child will less on root
-	void heapify(int arr[], int n, int i)
+	void heapify(int ARRAY[], int n, int current_root_index)
 	{
-		int largest = i;  // Initialize largest as root
-		int l = 2*i + 1;  // left = 2*i + 1
-		int r = 2*i + 2;  // right = 2*i + 2
+		int current_root = current_root_index;  // Initialize largest as root
+		int l = 2*current_root_index + 1;  // left = 2*i + 1
+		int r = 2*current_root_index + 2;  // right = 2*i + 2
 
-		printArray(arr);
+		printArray(ARRAY);
 		System.out.println("==============================================================");
-		System.out.println("current largest : ie ;;  i - " +largest);
+		System.out.println("current largest : ie ;;  i - " +current_root);
 
 		try {
-			System.out.println("current root " + arr[largest]);
-			System.out.println("Left index : " + l + " for current largest or root  index " +largest);
-			System.out.println("Left Child " + arr[l] +" for current largest or root " + arr[largest]);
-			System.out.println("Right index : " + r + " for current largest for root index " + largest);
-			System.out.println("Right Child " + arr[r]+ " for current largest for root " + arr[largest]);
+			System.out.println("current root " + ARRAY[current_root]);
+			System.out.println("Left index : " + l + " for current largest " +current_root+  " or root  index " +current_root);
+			System.out.println("Left Child " + ARRAY[l] +" for current largest , "+current_root+ " or root " + ARRAY[current_root]);
+			System.out.println("Right index : " + r + " for current largest " +current_root+ " for root index " + current_root);
+			System.out.println("Right Child " + ARRAY[r]+ " for current largest for root " + ARRAY[current_root]);
 
 
 		} catch (ArrayIndexOutOfBoundsException e ) {
 			System.out.println(e.getMessage());
 		}
-
 		// If left child is larger than root
+		System.out.println("Swapping largest index " +current_root+ " with left index " +l+ " if left is greater then with root");
 
-		System.out.println("Swapping largest index " +largest+ " with left index " +l+ " if left is greater then with root");
-
-		if (l < n && arr[l] > arr[largest]) {
-			System.out.println("Compared root " +arr[largest]+" with laft child " +arr[l]);
-
-			largest = l;
-			System.out.println("After swapped largest " +largest);
+		// NOTE : for building max heapying just change the > ----> <
+		if (l < n && ARRAY[l] > ARRAY[current_root]) {
+			System.out.println("Compared root " +ARRAY[current_root]+" with left child " +ARRAY[l]);
+			current_root = l;
+			System.out.println("After swapped largest " +current_root);
 		}
-
-
-
 		// If right child is larger than largest so far
-
-		System.out.println("Swapping largest index " +largest+ " with right index " +l+ " if right is greater then with root");
-
-		if (r < n && arr[r] > arr[largest]) {
-			System.out.println("Compared root " +arr[largest]+" with right child " +arr[r]);
-			largest = r;
-			System.out.println("After swapped largest " + largest);
+		// NOTE : for building max heapying just change the > ----> <
+		System.out.println("Swapping largest index " +current_root+ " with right index " +l+ " if right is greater then with root");
+		if (r < n && ARRAY[r] > ARRAY[current_root]) {
+			System.out.println("Compared root " +ARRAY[current_root]+" with right child " +ARRAY[r]);
+			current_root = r;
+			System.out.println("After swapped largest " + current_root);
 		}
 
 		// If largest is not root // if largest is changed from the above
-		if (largest != i)
+		if (current_root != current_root_index)
 		{
 			System.out.println("If largest is not root");
-			int swap = arr[i];
-			arr[i] = arr[largest];
-			arr[largest] = swap;
+			int swap = ARRAY[current_root_index];
+			ARRAY[current_root_index] = ARRAY[current_root];
+			ARRAY[current_root] = swap;
 
 			// Recursively heapify the affected sub-tree
-			heapify(arr, n, largest);
+			heapify(ARRAY, n, current_root);
 		}
 	}
 
@@ -169,15 +169,17 @@ public class HeapSort {
 		System.out.println();
 	}
 
-	public void sort(int arr[])
+	public void heapSort(int arr[])
 	{
 		int n = arr.length;
 
 		// Build heap (rearrange array)
-		for (int i = n / 2 - 1; i >= 0; i--) {
-			System.out.println("Heapifying from index" +i);
-			heapify(arr, n, i);
+		for (int current_root_index = n / 2 - 1; current_root_index >= 0; current_root_index--) {
+			System.out.println("Heapifying from index (i) : " +current_root_index);
+			heapify(arr, n, current_root_index);
 		}
+
+		printArray(arr);
 
 		System.out.println("========= Extracting =========");
 
@@ -188,7 +190,6 @@ public class HeapSort {
 			int temp = arr[0];
 			arr[0] = arr[i];
 			arr[i] = temp;
-
 			// call max heapify on the reduced heap
 			heapify(arr, i, 0);
 		}

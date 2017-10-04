@@ -52,11 +52,15 @@ public class ReverseLinkedList {
     static Rev head ;
     public static void main(String[] args) {
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        reverseLinkedList.insert(10);
-        reverseLinkedList.insert(20);
-        reverseLinkedList.insert(30);
+        reverseLinkedList.push(10);
+        reverseLinkedList.push(20);
+        reverseLinkedList.push(30);
         reverseLinkedList.diaply(head);
 
+        reverseLinkedList.reverse(head);
+        reverseLinkedList.diaply(head);
+
+        /*
         Stack<Integer> reverseStack = reverseStack();
         System.out.println("Size" +reverseStack.size());
 
@@ -64,16 +68,10 @@ public class ReverseLinkedList {
             System.out.println("R - " +reverseStack.pop());
         }
 
-
-
+ */
         System.out.println("Using Recursion .............");
         reverseLinkedList.reverseRecursively();
         reverseLinkedList.diaply(head);
-
-
-
-
-
 
     }
 
@@ -92,24 +90,31 @@ public class ReverseLinkedList {
     }
 
 
+    public  void push(int data) {
+        Rev new_node=new Rev(data);
+        new_node.next=head;
+        head=new_node;
+    }
+
     public void reverseRecursively(){
         head = reverseRecursively(head);
+        System.out.println(head.data);
     }
 
     private static Rev reverseRecursively(Rev node){
-
         Rev newHead; //base case - tail of original linked list
-        if((node.next == null)){ return node; }
+        if((node.next == null))
+        {
+            return node;
+        }
         newHead = reverseRecursively(node.next);
         //reverse the link e.g. C->D->null will be null
-        node.next.next = node; node.next = null;
-        return newHead; }
+        //The below statement will be executed when base or exit condition (node.next ==null) is reached
+        node.next.next = node;
+        node.next = null;
 
-
-
-
-
-
+        return newHead;
+    }
 
 
 
@@ -130,6 +135,43 @@ public class ReverseLinkedList {
     }
 
 
+
+    //Iterative approach
+    /*
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+     */
+    public Rev reverseUsinIterative(Rev first){
+        Rev current=first;
+        Rev next=null;
+        Rev prev=null;
+
+        while (current!=null){
+        next=current.next;
+        current.next=prev;
+        prev=current;
+        current=next;
+        }
+
+        first=prev;
+        return first;
+
+    }
+
+    /* Function to reverse the linked list */
+    Rev reverse(Rev node) {
+        Rev prev = null;
+        Rev current = node;
+        Rev next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
 
     public void insert(int data) {
         Rev new_node = new Rev(data);

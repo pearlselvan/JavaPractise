@@ -75,7 +75,7 @@ public class MaxSizeSubMatrix {
 
         }
 
-        printArray(out);
+//        printArray(out);
 
         System.out.println("Max Square IS : " +findMaxin2D(in));
 

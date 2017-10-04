@@ -7,7 +7,6 @@ import java.util.Comparator;
  * Created by muthuselvan on 4/27/17.
  */
 public class ArrayComparator {
-
     public ArrayComparator() {
 
     }
@@ -27,10 +26,7 @@ public class ArrayComparator {
 //        }
         Arrays.sort(studentArray,new scoreComparator());
 
-
-
     }
-
 
 }
 
@@ -70,6 +66,11 @@ class Chess {
         this.score=score;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Chess{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }

@@ -13,6 +13,20 @@ import java.util.*;
  * Given a graph and a source vertex in graph,
  * find shortest paths from source to all vertices in the given graph.
  *
+ * For a graph with no negative weights,
+ * we can do better and calculate single source shortest
+ * distances in O(E + VLogV) time using Dijkstra’s algorithm
+ *
+ *
+ *  Dijkstra work only for non-negative number :
+ *  ---------------------------------------------
+ *  * For a graph with no negative weights,
+ * we can do better and calculate single source shortest
+ * distances in O(E + VLogV) time using Dijkstra’s algorithm
+ *
+ * Big - O
+ * --------
+ * O(E + VLogV)
  *
  */
 public class DijkstraShortestPath {

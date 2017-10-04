@@ -97,10 +97,10 @@ package DataStructure.Stack;
   Flow :
 
  Declare and intilized the variable :
- int nextavailable = 0
+ int nextavailable = 0  //which index i need to put the data
  int next[] = {1,2,3,4,5,-1}
  int data[] = {0,0,0,0,0,0}
- top[] ={-1,-1,-1}
+ top[] ={-1,-1,-1} // negative mean stack is empty
 
  when push (0,10): zero the stack then push 10
  1.Go to the nextavailable , get the index

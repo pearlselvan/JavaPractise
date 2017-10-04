@@ -2,8 +2,25 @@ package CodingPractise.Array;
 
 /**
  * Created by muthuselvan on 3/6/17.
- * sol 1 :
- * sol 2 : http://www.geeksforgeeks.org/find-union-and-intersection-of-two-unsorted-arrays/
+ *
+ * o(n+m)
+ * =======
+ * http://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
+ *
+ * Java Solution 1 - HashSet
+ * ==========================
+ https://www.programcreek.com/2015/05/leetcode-intersection-of-two-arrays-java/
+ Time = O(n).
+ Space = O(n).
+
+ Java Solution 2 - Binary Search
+ ===============================
+
+ Time = O(nlog(n)).
+ Space = O(n).
+
+
+
  */
 public class IntersectionOfUnsortedArray {
 

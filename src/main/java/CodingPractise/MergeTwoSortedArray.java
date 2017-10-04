@@ -27,16 +27,32 @@ public class MergeTwoSortedArray {
     public static void merge(Stack<Integer> first,Stack<Integer> second) {
         Stack<Integer> result = new Stack<>();
         while (!first.empty() && !second.empty()) {
+            System.out.println("First : " + first.peek() +" second : " +second.peek());
             if (first.peek() < second.peek()) {
-                System.out.println("F" + first.peek());
+                System.out.println("Pushing first stack : " +first.peek());
                 result.push(first.pop());
             } else {
-                System.out.println("S" + second.peek());
+                System.out.println("Pushing second stack : " +second.peek());
                 result.push(second.pop());
             }
 
         }
-        System.out.println(result);
+
+        System.out.println("So far result " +result);
+
+        System.out.println(first.size());
+        System.out.println(second.size());
+
+        while (first.size() != 0) {
+            result.push(first.pop());
+        }
+//
+        while (second.size() != 0) {
+            result.push(second.pop());
+
+        }
+
+
 
     }
 }

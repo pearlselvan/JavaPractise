@@ -1,17 +1,112 @@
 package DynamicProgramming;
 
+import java.util.Arrays;
+
 /**
  * Created by muthuselvan on 3/25/17.
  * http://buttercola.blogspot.com/2014/10/leetcode-wildcard-matching.html
  * https://www.youtube.com/watch?v=3ZDZ-N0EPV0
  * https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/WildCardMatching.java
+ *
+ * ================================================================================================================
+ *
+ * Analysis: if you are not able to following this analysis , please look linear time
+ * =========
+
+ For each element in s
+ If *s==*p or *p == ? which means this is a match, then goes to next element s++ p++.
+ If p=='*', this is also a match, but one or many chars may be available, so let us save this *'s position and the matched s position.
+ If not match, then we check if there is a * previously showed up,
+ if there is no *,  return false;
+ if there is an *,  we set current p to the next element of *, and set current s to the next saved s position.
+
+ e.g.
+
+ abed
+ ?b*d**
+
+ a=?, go on, b=b, go on,
+ e=*, save * position star=3, save s position ss = 3, p++
+ e!=d,  check if there was a *, yes, ss++, s=ss; p=star+1
+ d=d, go on, meet the end.
+ check the rest element in p, if all are *, true, else false;
+
+ ================================================================================================================
+ *
+ *
+ * CASES Handling :
+ * http://www.geeksforgeeks.org/wildcaard-pattern-matching/
+ * Case 1: The character is ‘*’
+ * Case 2: The character is ‘?’
+ * Case 3: The character is not a wildcard character
+ *
+ * Solution :
+ * ===============
+ * Let T[row_string][col_pattern] is true if first 'row' characters in given string matches
+ * the first 'col' characters of pattern.
+ *
+
+ * DP Initialization:
+ * ===================
+
+ // both text and pattern are null
+ T[0][0] = true;
+
+ // pattern is null
+ T[i][0] = false;
+
+ // text is null
+ T[0][j] = T[0][j - 1] if pattern[j – 1] is '*'
+
+
+ DP relation :
+===============
+ // If current characters match, result is same as
+ // result for lengths minus one. Characters match
+ // in two cases:
+ // a) If pattern character is '?' then it matches
+ //    with any character of text.
+ // b) If current characters in both match
+ if ( pattern[j – 1] == ‘?’) ||
+ (pattern[j – 1] == text[i - 1])
+ T[i][j] = T[i-1][j-1]
+
+ // If we encounter ‘*’, two choices are possible-
+ // a) We ignore ‘*’ character and move to next
+ //    character in the pattern, i.e., ‘*’
+ //    indicates an empty sequence.
+ // b) '*' character matches with ith character in
+ //     input
+ else if (pattern[j – 1] == ‘*’)
+ T[i][j] = T[i][j-1] || T[i-1][j]
+
+ else // if (pattern[j – 1] != text[i - 1])
+ T[i][j]  = false
+
+  col = pattern , row=string
+      0    1    2     3   4  5   6
+  --------------------------------------------
+  0  T    0    0     0   0  0    0
+ --------------------------------------------
+1
+ --------------------------------------------
+2
+ --------------------------------------------
+3
+ --------------------------------------------
+4
+ --------------------------------------------
+
  */
+
+
 
 /*
 
          ---------ROW IS PATTERN ------------------------------
 
-     PATTERN : X?Y*Z  STRING : XAYLMZ
+      STRING  (ROW) : XAYLMZ   PATTERN (COL)  : X?Y*Z
+
 
     in below T[0]0] will TRUE , indicate that will be true because two empty will be match
    then its true
@@ -49,7 +144,7 @@ T is 2D array boolean
 and T[i][j] indicating that is a substring in the string from 0 till i
 and substring in pattern 0 to till j are mathced or not
 
- T[i][j] will take the one the following falues :
+ T[i][j] will take the one the following values :
 
  1. T[i][j] => T[i-1][j-1] (from diagonal), if String[i] == pattern[j] || pattern[j] = '?'
      ( This mean that till i and j the values at i and j is already same so then we check
@@ -81,9 +176,25 @@ public class WildCardMatch {
 
         WildCardMatch wcm = new WildCardMatch();
         System.out.println(wcm.isMatch("xbylmz", "x?y*z"));
+        System.out.println("is match including zero : " +wcm.isMatch("xbylmz", "*"));
+        System.out.println("is match with NULL / empty : " +wcm.isMatch("", "*"));
+//        System.out.println("is match with NULL / empty : " +wcm.isMatch(null, "*"));
         System.out.println(wcm.isMatch("xbbylmz", "x?y*z"));
         System.out.println(wcm.isMatch("ABC", "AB*C"));
+        System.out.println("M 2 : " +wcm.isMatch("ABC", "AB*C"));
         System.out.println(wcm.isMatch("AAB", "C*A*B"));
+        System.out.println();
+
+        System.out.println("Methond  2  EASY TO Understand DB : " +wcm.isMatch2("CAB", "C****A*B"));
+
+        System.out.println();
+        System.out.println("LINEAR TIME .........");
+
+//        System.out.println(" LINEAR TIME : " +wcm.matchUsingLinearTime("CAB","C****A*B"));
+//        System.out.println(" LINEAR TIME : " +wcm.matchUsingLinearTime("CAB","C****A*B"));
+        System.out.println(" LINEAR TIME : " +wcm.matchUsingLinearTime("MUTHU","M*U"));
+
+//        matchUsingLinearTime
 
     }
 
@@ -93,6 +204,10 @@ public class WildCardMatch {
         char[] pattern = p.toCharArray();
 
         MaxSizeSubMatrix print2d = new MaxSizeSubMatrix();
+
+
+
+        if (s.equals(null) || s.length() == 0 || p.equals(null) || p.length() ==0) return true;
 
 
         //replace multiple * with one *
@@ -106,14 +221,18 @@ public class WildCardMatch {
                     pattern[writeIndex++] = pattern[i];
                     isFirst = false;
                 }
-            } else {
+            } else { // if it '?'
                 pattern[writeIndex++] = pattern[i];
                 isFirst = true;
             }
         }
+        System.out.println("Patten >>> " +Arrays.toString(pattern));
+        System.out.println("String >>> " +s);
         // intialize 2D boolean
         // writeIndex is size of new pattern length after removed multiple *
         boolean T[][] = new boolean[str.length + 1][writeIndex + 1];
+        System.out.println("T matrix row size : " +T.length);
+        System.out.println("T matrix col size : " +T[0].length);
 
         // T[0][1] will true if the first character in pattern is *
         if (writeIndex > 0 && pattern[0] == '*') {
@@ -140,6 +259,130 @@ public class WildCardMatch {
     }
 
 
+    //LINEAR TIME : https://leetcode.com/problems/wildcard-matching/discuss/
+    //The basic idea is to have one pointer for the string and one pointer for the pattern.
+    // This algorithm iterates at most length(string) + length(pattern) times, for each iteration, at least one pointer advance one step.
+
+    /*
+    Analysis:
+
+For each element in s
+If *s==*p or *p == ? which means this is a match, then goes to next element s++ p++.
+If p=='*', this is also a match, but one or many chars may be available, so let us save this *'s position and the matched s position.
+If not match, then we check if there is a * previously showed up,
+       if there is no *,  return false;
+       if there is an *,  we set current p to the next element of *, and set current s to the next saved s position.
+
+e.g.
+
+abed
+?b*d**
+
+a=?, go on, b=b, go on,
+e=*, save * position star=3, save s position ss = 3, p++
+e!=d,  check if there was a *, yes, ss++, s=ss; p=star+1
+d=d, go on, meet the end.
+check the rest element in p, if all are *, true, else false;
+     */
+
+    /*
+     Analysis: if you are not able to following this analysis , please look linear time
+ * =========
+
+    For each element in s
+    If *s==*p or *p == ? which means this is a match, then goes to next element s++ p++.
+    If p=='*', this is also a match, but one or many chars may be available, so let us save this *'s position and the matched s position.
+    If not match, then we check if there is a * previously showed up,
+            if there is no *,  return false;
+ if there is an *,  we set current p to the next element of *, and set current s to the next saved s position.
+*/
+
+    boolean matchUsingLinearTime(String str, String pattern) {
+        int strPointer = 0, patPointer = 0, match = 0, starIdx = -1;
+        System.out.println("STRING : " +str+ " PATTERN  : " +pattern);
+        //For each element in s
+        while (strPointer < str.length()){
+            System.out.println("while loops check sPointer < str.length() : " +strPointer + " string length : " +str.length());
+
+
+            // advancing both pointers : If *s==*p or *p == ? which means this is a match, then goes to next element s++ p++.
+            if (patPointer < pattern.length()  && (pattern.charAt(patPointer) == '?' || str.charAt(strPointer) == pattern.charAt(patPointer))){
+                System.out.println("Found ? at index pPointer  " +patPointer  +" or matched char");
+                strPointer++;
+                patPointer++;
+                System.out.println("Advancing Pattern Pointer to : " +patPointer);
+                System.out.println("Advancing String Pointer to : " +strPointer);
+            }
+            // * found, only advancing pattern pointer
+            //If p=='*', this is also a match, but one or many chars may be available, so let us save this *'s position and the matched s position.
+            else if (patPointer < pattern.length() && pattern.charAt(patPointer) == '*'){
+                System.out.println("Found * at index pPointer : " +patPointer  );
+                starIdx = patPointer; // for tracking * in pattern
+                match = strPointer;
+                patPointer++;
+                System.out.println("Storing starIdx=pPointer for tracking * , starIdx :" +starIdx);
+            }
+            // last pattern pointer was *, advancing string pointer
+            //If not match, then we check if there is a * previously showed up,
+            else if (starIdx != -1){
+                System.out.println("Last pattern was *");
+                patPointer = starIdx + 1;
+                match++;
+                strPointer = match;
+            }
+            //current pattern pointer is not star, last patter pointer was not *
+            //characters do not match
+            //if there is no *,  return false;
+            else return false;    // ----- DON'T FORGET
+        } // END WHILE FOR STRING
+
+        //check for remaining characters in pattern
+//        if there is an *,  we set current p to the next element of *, and set current s to the next saved s position.
+        while (patPointer < pattern.length() && pattern.charAt(patPointer) == '*') {
+            System.out.println("Checking remaining pattern for * ");
+            patPointer++;
+        System.out.println("Advanced Pattern pointer : " +patPointer);
+        } // END WHILE FOR PATTERN
+        System.out.println("Finall : " +patPointer +" Pattern Length : " +pattern.length());
+        return patPointer == pattern.length();
+    }
+
+
+
+
+
+//    http://buttercola.blogspot.com/2014/10/leetcode-wildcard-matching.html
+    public boolean isMatch2(String s, String p) {
+        if (p == null || p.length() == 0) {
+            return s == null || s.length() == 0;
+        }
+
+        int rows = s.length();
+        int cols = p.length();
+
+        boolean[][] dp = new boolean[rows + 1][cols + 1];
+
+        dp[0][0] = true;
+        for (int j = 1; j <= cols; j++) {  // pattern check if *
+            if (p.charAt(j - 1) == '*') {
+                dp[0][j] = dp[0][j - 1];
+            }
+        }
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                if (p.charAt(j - 1) != '*') {
+                    if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?') {
+                        dp[i][j] = dp[i - 1][j - 1];
+                    }
+                } else {
+                    dp[i][j] = dp[i - 1][j - 1] || dp[i][j - 1] || dp[i - 1][j];
+                }
+            }
+        }
+
+        return dp[s.length()][p.length()];
+    }
 
 
     /**
