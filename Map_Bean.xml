@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+   <bean id="mapex" class="SpringDemo.SpringAWForSetter.XML_Collections_AW.MapDemo.CountryCodeBean">
+       <property name="hashMap">
+           <props>
+               <prop key="USA">US</prop>
+               <prop key="INDIA">US</prop>
+               <prop key="GERMANY">GER</prop>
+               <prop key="LONDON">LON</prop>
+           </props>
+       </property>
+   </bean>
+</beans>

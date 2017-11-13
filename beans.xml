@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="SpringDemo.SpringAWForSetter.XMLContextDemo.PersonX">
+
+    <!--<constructor-arg value="muthu"  name="name"> </constructor-arg>-->
+    <constructor-arg value="muthuSR" index="0"> </constructor-arg>
+    <property name="id" value="228737"></property>
+    <property name="addressX" ref="address"></property>
+
+</bean>
+
+
+
+
+    <bean id="address" class="SpringDemo.SpringAWForSetter.XMLContextDemo.AddressX">
+        <constructor-arg name="street" value="1604 Hope Drive"></constructor-arg>
+        <constructor-arg name="zipCode" value="95054"></constructor-arg>
+    </bean>
+
+
+
+  <!--p.name is equivalent setting proper name and value -->
+    <bean id="pname" class="SpringDemo.SpringAWForSetter.XML_Init_Destroy_Scope.PNameSpace" p:pname="PNAMEExampleName">
+
+
+    </bean>
+
+    <bean id="emp" class="SpringDemo.SpringAWForSetter.XML_Init_Destroy_Scope.EmpServiceBean"  scope="prototype" init-method="init_Methond"
+    destroy-method="destroy_Method">
+        <constructor-arg name="name" value="muthuselvan"></constructor-arg>
+
+    </bean>
+
+</beans>

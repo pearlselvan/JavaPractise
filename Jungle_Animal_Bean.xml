@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="jungle" class="SpringDemo.SpringAWForSetter.XML_Collections_AW.Jungle">
+        <property name="largest" ref="lion"></property>
+
+
+        <property name="animalList">
+            <list>
+                <ref bean="elephant"></ref>
+                <ref bean="lion"></ref>
+                <ref bean="monkey"></ref>
+
+            </list>
+
+        </property>
+
+
+
+    </bean>
+
+
+    <bean id="lion" class="SpringDemo.SpringAWForSetter.XML_Collections_AW.Animal">
+        <property name="name" value="LION"></property>
+        <property name="type" value="LION_TYPE"></property>
+    </bean>
+
+
+    <bean id="elephant" class="SpringDemo.SpringAWForSetter.XML_Collections_AW.Animal">
+        <property name="name" value="ELE"></property>
+        <property name="type" value="ELE_TYPE"></property>
+    </bean>
+
+
+    <bean id="monkey" class="SpringDemo.SpringAWForSetter.XML_Collections_AW.Animal">
+        <property name="name" value="MON"></property>
+        <property name="type" value="MON_TYPE"></property>
+    </bean>
+
+</beans>

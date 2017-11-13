@@ -92,7 +92,7 @@ package CodingPractise.Array;
  }
  }
 
-
+python : print list[-k:]+list[:-k]
 
 
  */

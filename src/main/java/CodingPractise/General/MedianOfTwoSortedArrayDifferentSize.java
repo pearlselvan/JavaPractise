@@ -125,6 +125,7 @@ public class MedianOfTwoSortedArrayDifferentSize {
 //        int[] data2= {2,4};
 
 
+
         int[] data1= {1,3,5};
         int[] data2= {12,14,18};
 

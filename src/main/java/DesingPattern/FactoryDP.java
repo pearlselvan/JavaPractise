@@ -69,8 +69,10 @@ class CurrencyFactory {
     }
 }
 /*
-Best Example of Factory method design pattern is valueOf() method which is there in String and wrapper classes
-like Integer and Boolean and used for type conversion i.e. from converting String to Integer or String to double in java..
+Best Example of Factory method design pattern is valueOf() method
+which is there in String and wrapper classes
+like Integer and Boolean and used for type conversion
+i.e. from converting String to Integer or String to double in java..
  */
 class JDKValueofFactory {
     public static void valueOfExample() {

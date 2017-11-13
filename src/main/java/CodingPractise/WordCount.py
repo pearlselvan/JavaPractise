@@ -6,6 +6,7 @@ Maybe they had to take some time"""
 words = ss.split()
 print "W",words
 d = {}.fromkeys(words,0)
+print ("Initial Dict " ,d)
 for w in words:
     d[w] += 1
 print d

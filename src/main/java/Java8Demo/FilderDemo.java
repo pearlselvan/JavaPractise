@@ -2,12 +2,10 @@ package Java8Demo;
 
 //import com.sun.tools.javac.util.List;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by muthuselvan on 2/2/17.
@@ -27,6 +25,17 @@ import java.util.stream.Collectors;
 
 
  */
+
+interface Mylambda {
+    void foo();
+}
+
+
+interface AddTwo {
+
+    int sum(int a, int b);
+
+}
 public class FilderDemo {
 
 
@@ -36,6 +45,25 @@ public class FilderDemo {
         hashMapStream();
         filterByLength();
         mapExample();
+
+        Mylambda name = () -> System.out.println("My first lamda");
+//        System.out.println("L" +name.);
+        name.foo();
+
+        AddTwo addTwo = ( a , b ) ->  a+b ;
+        System.out.println("Sum using lamda " +addTwo.sum(10,12));
+       // System.out.println("Sum using lamda inline " +addTwo.sum(10,12));
+
+         callsum((a,b) -> a+b);
+        System.out.println("Range :" + Arrays.toString(IntStream.range(1,10).toArray()));
+
+
+
+
+    }
+
+    public static void callsum(AddTwo addTwo) {
+        System.out.println("Using inline : " +addTwo.sum(10,12));
 
     }
 

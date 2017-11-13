@@ -1,14 +1,15 @@
 /*
  * This Class demonstrates use of annotations using reflection.
- * 
+ *
  * @author Yashwant Golecha (ygolecha@gmail.com)
  * @version 1.0
- * 
+ *
  */
 
-package com.yj;
+package AnnotationsSample;
 
 import java.lang.reflect.Method;
+
 
 public class TodoReport {
     public TodoReport() {
@@ -16,15 +17,27 @@ public class TodoReport {
     }
 
     public static void main(String[] args) {
+
+
+
         getTodoReportForBusinessLogic();
+        callAnnodation();
     }
 
     /**
      * This method iterates through all messages of BusinessLogic class and fetches annotations defined on each of them.
      * After that it displays the information from annotation accordingly.
      */
+
+    @Todo(author = "muthu")
+    public static void callAnnodation() {
+        System.out.println();
+
+
+    }
+
     private static void getTodoReportForBusinessLogic() {
-        
+
         Class businessLogicClass = BusinessLogic.class;
         for(Method method : businessLogicClass.getMethods()) {
             Todo todoAnnotation = (Todo)method.getAnnotation(Todo.class);
