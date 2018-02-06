@@ -1,6 +1,5 @@
-package SpringDemo.SpringAWForSetter;
+package SpringDemo.SpringAWForSetter.AnnodationTutorial.EmployeeExample;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

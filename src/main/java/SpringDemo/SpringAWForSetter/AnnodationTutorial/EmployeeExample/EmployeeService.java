@@ -1,13 +1,12 @@
-package SpringDemo.SpringAWForSetter;
+package SpringDemo.SpringAWForSetter.AnnodationTutorial.EmployeeExample;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by muthuselvan on 11/9/17.
  */
-@Service
+@Component
 public class EmployeeService {
 
 
@@ -17,15 +16,16 @@ public class EmployeeService {
 
 //    @Autowired(required=false)
 //@Autowired
-    public EmployeeService(@Qualifier("employee") EmployeeBean employeeBean) {
+//    public EmployeeService(@Qualifier("employee") EmployeeBean employeeBean) {
 //    public EmployeeService(EmployeeBean employeeBean) {
-        this.employeeBean = employeeBean;
-    }
+//        this.employeeBean = employeeBean;
+//    }
 
     public EmployeeService() {
     }
 
 
+    @Autowired
     public EmployeeBean getEmployeeBean() {
         return employeeBean;
     }

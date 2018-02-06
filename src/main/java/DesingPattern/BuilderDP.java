@@ -40,6 +40,10 @@ Some of the builder pattern example in Java classes are;
 java.lang.StringBuilder#append() (unsynchronized)
 java.lang.StringBuffer#append() (synchronized)
 
+
+https://github.com/freetipscentral/java8-methodReferencesExample/blob/master/MethodReference/src/com/freetipscentral/utility/PersonBuilder.java
+
+
  */
 
 public class BuilderDP {

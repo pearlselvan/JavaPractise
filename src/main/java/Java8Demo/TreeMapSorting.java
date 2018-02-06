@@ -1,8 +1,6 @@
 package Java8Demo;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by muthuselvan on 5/8/17.
@@ -34,9 +32,17 @@ public class TreeMapSorting {
 
 
         fruits.forEach((k,v) -> System.out.println("K - " +k +": " +v));
+
+
+
+
         System.out.println(fruits.pollFirstEntry());
         System.out.println(fruits.pollLastEntry());
         System.out.println(fruits.tailMap(2));
+
+
+        List<Integer> integerList  = Arrays.asList(10,20,30);
+        integerList.forEach(out-> System.out.println(out));
     }
 
  //Implementation : Internal HashMap implementation use Hashing.

@@ -1,4 +1,4 @@
-package SpringDemo.SpringAWForSetter;
+package SpringDemo.SpringAWForSetter.AnnodationTutorial.EmployeeExample;
 
 import org.springframework.stereotype.Component;
 

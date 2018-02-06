@@ -147,7 +147,7 @@ class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "InterfacePerson{" +
                 "fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", age=" + age +

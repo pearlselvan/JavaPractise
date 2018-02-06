@@ -13,7 +13,7 @@ class Link
     public Link(long d)                // constructor
     { dData = d; }
     // -------------------------------------------------------------
-    public void displayLink()          // display this link
+    public void displayLink()          // DisplayInterface this link
     { System.out.print(dData + " "); }
 // -------------------------------------------------------------
 }  // end class Link
@@ -143,7 +143,7 @@ class DoublyLinkedList1
         Link current = head;          // start at beginning
         while(current != null)         // until end of list,
         {
-            current.displayLink();      // display data
+            current.displayLink();      // DisplayInterface data
             current = current.next;     // move to next link
         }
         System.out.println("");
@@ -155,7 +155,7 @@ class DoublyLinkedList1
         Link current = tail;           // start at end
         while(current != null)         // until start of list,
         {
-            current.displayLink();      // display data
+            current.displayLink();      // DisplayInterface data
             current = current.previous; // move to previous link
         }
         System.out.println("");
@@ -177,19 +177,19 @@ public class DoublyLinkedApp
         theList.inserttail(33);
         theList.inserttail(55);
 
-        theList.displayForward();     // display list forward
-        theList.displayBackward();    // display list backward
+        theList.displayForward();     // DisplayInterface list forward
+        theList.displayBackward();    // DisplayInterface list backward
 
         theList.deleteFirst();        // delete first item
         theList.deletetail();         // delete last item
         theList.deleteKey(11);        // delete item with key 11
 
-        theList.displayForward();     // display list forward
+        theList.displayForward();     // DisplayInterface list forward
 
         theList.insertAfter(22, 77);  // insert 77 after 22
         theList.insertAfter(33, 88);  // insert 88 after 33
 
-        theList.displayForward();     // display list forward
+        theList.displayForward();     // DisplayInterface list forward
     }  // end main()
 }  // end class DoublyLinkedApp
 ////////////////////////////////////////////////////////////////

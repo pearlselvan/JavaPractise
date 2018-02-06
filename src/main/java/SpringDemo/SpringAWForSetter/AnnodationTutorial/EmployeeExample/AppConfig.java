@@ -1,4 +1,4 @@
-package SpringDemo.SpringAWForSetter;
+package SpringDemo.SpringAWForSetter.AnnodationTutorial.EmployeeExample;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * https://www.concretepage.com/spring/spring-autowired-annotation-example-with-setter-method-field-and-constructor-using-xml-and-java-configuration
  */
 @Configuration
-@ComponentScan(basePackages="com.SpringDemo.SpringAWForSetter")
+@ComponentScan(basePackages="SpringDemo.SpringAWForSetter.EmployeeExample")
 public class AppConfig {
 
 

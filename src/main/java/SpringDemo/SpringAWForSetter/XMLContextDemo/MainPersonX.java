@@ -15,7 +15,7 @@ public class MainPersonX {
         ApplicationContext ctx = new FileSystemXmlApplicationContext("beans.xml");
         PersonX personX = (PersonX) ctx.getBean("person");
         personX.speak();
-        System.out.println("Person : " +personX);
+        System.out.println("InterfacePerson : " +personX);
 
 
         AddressX addressX = (AddressX) ctx.getBean("address");

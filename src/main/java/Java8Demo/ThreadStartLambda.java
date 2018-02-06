@@ -1,10 +1,16 @@
 package Java8Demo;
 
+import java.util.stream.IntStream;
+
 /**
  * Created by muthuselvan on 2/8/17.
  */
 public class ThreadStartLambda {
     public static void main(String[] args) {
+        IntStream intStream = IntStream.range(1,5);
+        intStream.forEach(System.out::println);
+
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -47,6 +53,15 @@ public class ThreadStartLambda {
                 e.printStackTrace();
             }
         }
+
+
+        Thread inStreamLambda = new Thread(() -> {
+
+            IntStream intStream1 = IntStream.range(1,5);
+            intStream1.forEach(System.out::println);
+        });
+
+        inStreamLambda.start();
 
     }
 

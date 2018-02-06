@@ -7,6 +7,10 @@ public class CloneDemo {
 
     public static void main(String[] args) {
 
+//        while (false) {
+//            System.out.println("Demo for while ");
+//        }
+
 
     }
 }
